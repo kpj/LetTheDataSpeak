@@ -28,7 +28,9 @@ Sonification of DNA:
 
 * Base codons will map to notes (similar to the codon sun)
 * Search for ORFs, use different style inside/outside of ORF
-* Determine additional information about smaller intervals (e.g. tetranucleotide frequency), let it influence volume/pace/...
+* Determine additional information about smaller intervals
+  * tetranucleotide frequency -> pace
+  * mutual information of current codon -> volume
 
 ### Libraries
 * https://github.com/biojs/biojs
