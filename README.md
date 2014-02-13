@@ -37,3 +37,5 @@ Sonification of DNA:
 ### Libraries
 * https://github.com/biojs/biojs
 * http://www.bioinformatics.org/sms2/
+* http://socket.io/
+* http://expressjs.com/guide.html
