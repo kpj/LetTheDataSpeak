@@ -84,8 +84,8 @@ function iterate() {
 		var dat = cur[i];
 		if(dat['enabled']) {
 			// play tune
-			var sine1 = T("sin", {freq: dat['freq1']});
-			var sine2 = T("sin", {freq: dat['freq2']});
+			var sine1 = T("sin", {freq: T("pulse", {freq: dat['freq1'], add: 880, mul: 20}).kr()});
+			var sine2 = T("cos", {freq: dat['freq2']});
 
 			T("perc", {r:800}, sine1, sine2).on("ended", function() {
 				this.pause();
