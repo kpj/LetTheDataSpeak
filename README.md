@@ -8,7 +8,7 @@ Code and idea repository for the final project.
 
 * html
 * css
-* bootstrap
+ * bootstrap
 * javascript
 
 ### Idea
@@ -20,6 +20,8 @@ Everyone can upload data and listen to awesome tunes!
 ### Languages
 
 * nodejs
+ * express
+ * socket.io
 * (python)
 
 ### Idea
