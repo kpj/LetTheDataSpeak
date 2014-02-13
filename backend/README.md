@@ -1,5 +1,3 @@
 # Backend API
 
-## Exported Functions
-
-## Enabled Events
+## Public Functions
