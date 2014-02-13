@@ -1,6 +1,6 @@
 # Let The Data Speak
 
-Code and idea repository for the final project.
+Code and idea repository for the final project. Have some fun here: http://kpj.github.io/LetTheDataSpeak/frontend/.
 
 ## Frontend
 
@@ -32,5 +32,10 @@ Sonification of DNA:
   * mutual information of current codon -> volume
 
 ### Libraries
+
+#### Music Generation
+* http://mohayonao.github.io/timbre.js
+
+#### DNA Processing
 * https://github.com/biojs/biojs
 * http://www.bioinformatics.org/sms2/
