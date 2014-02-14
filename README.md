@@ -34,7 +34,8 @@ Sonification of DNA:
 ### Libraries
 
 #### Music Generation
-* http://mohayonao.github.io/timbre.js
+* pure wave modification: http://mohayonao.github.io/timbre.js
+* musical instruments: https://github.com/mudcube/MIDI.js (https://github.com/gleitz/midi-js-soundfonts)
 
 #### DNA Processing
 * https://github.com/biojs/biojs
