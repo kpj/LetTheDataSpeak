@@ -26,7 +26,7 @@ function mutual_information(seq, kv) {
 	 * k within the sequence. It is, therefore, a measure of the
 	 * strength of average correlation between the symbols i and j
 	 * at a distance k.
-	 * Note: I(k) corresponds to mutual_information.get_information(k, ..) 
+	 * Note: I(k) corresponds to mutual_information.get_information(k, ..), i to cur_pair[0], j to cur_pair[1], k to ..well.. k
 	 * ["Information theory reveals large-scale synchronisation of statistical correlations in eukaryote genomes" - Dehnert, Helm, Hütt (2005)]
 	 */
 
