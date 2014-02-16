@@ -121,7 +121,6 @@ function mutual_information(seq, kv) {
 
 	this.compute = function() {
 		var res = [];
-
 		var freqs = me.get_frequencies();
 
 		for(var j = 0 ; j < me.kv.length ; j++) {
