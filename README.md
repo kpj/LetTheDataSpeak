@@ -38,5 +38,4 @@ Sonification of DNA:
 * musical instruments: https://github.com/mudcube/MIDI.js (https://github.com/gleitz/midi-js-soundfonts)
 
 #### DNA Processing
-* https://github.com/biojs/biojs
-* http://www.bioinformatics.org/sms2/
+* self written utils
