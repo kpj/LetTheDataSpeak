@@ -128,7 +128,7 @@ function mutual_information(seq, kv) {
 			var k = me.kv[j];
 
 			if(k == 0)
-				continue; // mututal information not defined for k=0
+				continue; // mutual information not defined for k=0
 
 			var mutual_info = me.get_information(k, freqs);
 			res.push(mutual_info);
