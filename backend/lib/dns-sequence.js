@@ -33,4 +33,10 @@ function DnaSequence(seq) {
 		//Base 4 is just fine for fixed-length-strings
 		return parseInt(chunk, 4);
 	}
+
+	this.getMutualInformation = function(kv, from, to) {
+		var sindex = from || 0;
+		var gindex = to || me.sequence.length;
+		return (new mutual_information(me.sequence.slice(sindex, gindex), kv)).compute();
+	}
 }

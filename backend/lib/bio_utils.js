@@ -133,7 +133,7 @@ function mutual_information(seq, kv) {
 			var mutual_info = me.get_information(k, freqs);
 			res.push(mutual_info);
 
-			console.log(k, mutual_info);
+			//console.log(k, mutual_info);
 		}
 
 		return res;
