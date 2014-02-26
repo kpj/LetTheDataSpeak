@@ -139,35 +139,3 @@ function mutual_information(seq, kv) {
 		return res;
 	}
 }
-
-
-function DnaSequence(seq) {
-	var me = this;
-
-	this.sequence = seq;
-	this.index = 0;
-
-	this.next = function() {
-		me.index += 3;
-
-		if(me.index >= me.sequence.length) {
-			throw new Error('Dna Overflow');
-		}
-
-		return me.sequence.slice(me.index - 3, me.index);
-	}
-
-	this.mapping = {
-		'A': '1',
-		'G': '2',
-		'T': '3',
-		'C': '4'
-	};
-
-	this.nextInteger = function() {
-		var chunk = me.next().split('').map(function(e) {
-			return me.mapping[e];
-		}).join('');
-		return parseInt(chunk, 5);
-	}
-}
