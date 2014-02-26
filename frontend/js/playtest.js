@@ -44,6 +44,8 @@ $(function(){
 			clearInterval(interval);
 			clearInterval(plotInterval);
 
+			wave.pause();
+
 			interval = undefined;
 			wave = undefined;
 			frequencyPlot = undefined;
