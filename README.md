@@ -1,4 +1,4 @@
-http://1ucasvb.tumblr.com/post/43105696213/better-late-than-never-happy-valentines-day# Let The Data Speak
+# Let The Data Speak
 
 Code and idea repository for the final project. Have some fun here: http://kpj.github.io/LetTheDataSpeak/frontend/.
 
