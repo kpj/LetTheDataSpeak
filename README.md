@@ -1,6 +1,10 @@
-# Let The Data Speak
+http://1ucasvb.tumblr.com/post/43105696213/better-late-than-never-happy-valentines-day# Let The Data Speak
 
 Code and idea repository for the final project. Have some fun here: http://kpj.github.io/LetTheDataSpeak/frontend/.
+
+## Story
+
+Compare the sound of intergenic regions and open reading frames.
 
 ## Frontend
 
@@ -13,7 +17,7 @@ Code and idea repository for the final project. Have some fun here: http://kpj.g
 
 ### Idea
 
-Everyone can upload data and listen to awesome tunes!
+Everyone can upload data and listen to awesome tunes! A possibility to modify parameters (e.g. factors for pace/volume/...) will be provided.
 
 ## Backend
 
