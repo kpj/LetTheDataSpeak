@@ -4,7 +4,19 @@
 
 	<link rel="stylesheet" type="text/css" href="css/layout.css" />
 
+	
 	<script type="text/javascript" src="./lib/timbre.js"></script>
+
+	<script src="./lib/midi/MIDI/AudioDetect.js" type="text/javascript"></script>
+	<script src="./lib/midi/MIDI/LoadPlugin.js" type="text/javascript"></script>
+	<script src="./lib/midi/MIDI/Plugin.js" type="text/javascript"></script>
+	<script src="./lib/midi/MIDI/Player.js" type="text/javascript"></script>
+	<script src="./lib/midi/inc/Base64.js" type="text/javascript"></script>
+	<script src="./lib/midi/inc/base64binary.js" type="text/javascript"></script>
+	<script src="./lib/midi/Window/DOMLoader.XMLHttp.js" type="text/javascript"></script>
+	<script src="./lib/midi/Window/DOMLoader.script.js" type="text/javascript"></script>
+
+
 	<script type="text/javascript" src="./lib/jquery-2.1.0.min.js"></script>
 
 	<script type="text/javascript" src="../backend/lib/utils.js"></script>
@@ -25,7 +37,7 @@
 	-->
 	<div id="cycle">
 		<textarea id="data">AAAGGGCCC</textarea>
-		<button id="play">Play</button>
+		<button id="play" disabled>Play</button>
 		<button id="stop">Stop</button>
 		<canvas id="canvas"></canvas>
 	</div>
