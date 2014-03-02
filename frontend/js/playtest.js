@@ -21,7 +21,7 @@ $(function(){
 
 	var play = function() {
 		stop(); 
-		sequence = new DnaSequence($("#data").val());
+		sequence = new DnaSequence($("#data").val().toUpperCase());
 
 		interval = setInterval(iterate, 500);
 	};
