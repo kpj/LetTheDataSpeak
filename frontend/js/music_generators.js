@@ -29,9 +29,7 @@ var MidiPlayer = function() {
 
 	// TODO: make this nice and pretty
 	var instruments = {
-		"acoustic_grand_piano": 0,
-		"acoustic_guitar_nylon": 24,
-		"electric_bass_finger": 33
+		"acoustic_grand_piano": 0
 	};
 	MIDI.loadPlugin({
 	soundfontUrl: "./lib/midi/soundfont/",
