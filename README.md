@@ -18,6 +18,7 @@ Compare the sound of intergenic regions and open reading frames.
 * css
  * bootstrap
 * javascript
+* requires (any) static webserver to run
 
 ### Idea
 

@@ -6,27 +6,30 @@ var PlayerInit = function($masterdiv){
 	var interval = undefined;
 	var sequence = undefined;
 
+	var intervalLength = 500; 
 
 	var iterate = function() {
+
+		var state = sequence.stateSequence(); 
+
 		var next = sequence.nextInteger(true);
-		
+		var percent = sequence.percent(); 
+
 		// play the music
 		musicGenerator.setNote(next);
 		musicGenerator.playNote();
 
 		// draw the bars
 		BarPlayer.start(); 
-		BarPlayer.hit(next); 
-		
-		//log output to console
-		//console.log(next); 
+		BarPlayer.hit(next, percent); 
+		BarPlayer.vbarTick(state, intervalLength); 
 	}
 
 	var play = function() {
 		stop();
 
 		sequence = new DnaSequence($masterdiv.find(".data").val().toUpperCase());
-		interval = setInterval(iterate, 500);
+		interval = setInterval(iterate, intervalLength);
 		BarPlayer.start(); 
 
 		$masterdiv.find("select").attr("disabled", "disabled"); 

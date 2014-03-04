@@ -22,7 +22,7 @@
 .stroke {
 	width: 40px;
 	position: absolute;
-  	bottom:0;
+	bottom:0;
 }
 
 .data {
@@ -39,4 +39,45 @@ body {
 	position: fixed;
 	top: 50%;
 	width: 20%; 
+}
+
+.vbar {
+	position: relative; 
+	top: 0px; 
+	height: 100%; 
+	width: 1px; 
+	background-color: red; 
+	z-index: 100; 
+}
+
+.vtext {
+	position: fixed; 
+	top: 0;
+	z-index: 200; 
+	width: 100%;
+}
+
+.vtext > div {
+	position: relative; 
+	left: -100px; 
+	top: 100px; 
+	width: 200px; 
+	margin-left: auto; 
+	margin-right: auto; 
+
+	font-family: monospace; 
+	text-shadow: 2px 2px white;
+}
+
+.vtext > div > span.prev {
+	color: black;
+}
+
+.vtext > div > span.cur {
+	font-weight: bold; 
+	font-size: 200%; 
+}
+
+.vtext > div > span.next {
+	color: black;
 }
