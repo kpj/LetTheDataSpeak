@@ -23,6 +23,19 @@ var SimpleWaves = function() {
 	}
 }
 
+/* insert fonts here */
+var MidiSoundfonts = {
+	"acoustic_grand_piano": {
+		"name": "Piano", 
+		"programChange": [0, 0], 
+		"setVolume": [0, 127], 
+		"note": function(x){
+			return 21 + (x % 75);
+		}
+	}
+}
+
+
 var MidiPlayer = function(font, callback) {
 	var me = this;
 	this._note = undefined;
@@ -31,21 +44,23 @@ var MidiPlayer = function(font, callback) {
 	var instruments = {}; 
 	instruments[font] = 0; 
 
+	var fontprop = MidiSoundfonts[font]
+
 	MIDI.loadPlugin({
 		soundfontUrl: "./../lib/midi/soundfont/",
 		instruments: Object.keys(instruments),
 		callback: function() {
 			console.log("Loaded MIDI"); 
 
-			MIDI.setVolume(0, 127);
-			MIDI.programChange(0, 0);
+			MIDI.setVolume(fontprop.setVolume[0], fontprop.setVolume[1]);
+			MIDI.programChange(fontprop.programChange[0], fontprop.programChange[1]);
 
 			callback(); 
 		}
 	});
 
 	this.setNote = function(note) {
-		me._note = 21 + (note % 75);
+		me._note = fontprop.note(note); 
 	}
 
 	this.playNote = function() {
