@@ -32,7 +32,7 @@ var MidiPlayer = function(font, callback) {
 	instruments[font] = 0; 
 
 	MIDI.loadPlugin({
-		soundfontUrl: "./lib/midi/soundfont/",
+		soundfontUrl: "./../lib/midi/soundfont/",
 		instruments: Object.keys(instruments),
 		callback: function() {
 			console.log("Loaded MIDI"); 

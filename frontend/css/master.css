@@ -1,0 +1,54 @@
+.center {
+	width: 60%; 
+	margin-right: auto;
+	margin-left: auto; 
+	margin-top: 10px; 
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.full {
+	width: 100%; 
+}
+
+.left {
+	width: 20%; 
+	margin-left: 10px;
+}
+
+.header {
+	position: fixed; 
+	top: 0px;
+}
+
+.footer{
+	position: fixed; 
+	bottom: 0px;
+}
+
+iframe.row {
+	width: 100%; 
+	background-color: transparent;
+	border: 0px none transparent;
+	padding: 0px;
+	overflow: hidden;
+	height: 200px; 
+
+	margin-bottom: 10px;
+}
+
+#content {
+	position: fixed;
+	top: 50%;
+}
+
+html{
+	height: 95%;
+	margin: 0; 
+	padding: 0; 
+}
+body {
+	min-height: 100%;
+	margin: 0; 
+	padding: 0; 
+}

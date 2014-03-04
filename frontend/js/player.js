@@ -56,6 +56,8 @@ var PlayerInit = function($masterdiv){
 			$masterdiv.find("select").removeAttr("disabled"); 
 		}); 
 	}).change(); 
+
+	$masterdiv.find(".middle").css("margin-top", -$masterdiv.find(".middle").height()/2); 
 }
 
 $(function(){
