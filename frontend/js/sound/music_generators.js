@@ -27,8 +27,16 @@ var SimpleWaves = function() {
 var MidiSoundfonts = {
 	"acoustic_grand_piano": {
 		"name": "Piano", 
-		"programChange": [0, 0], 
-		"setVolume": [0, 127], 
+		"channel": 0, 
+		"programID": 0, 
+		"note": function(x){
+			return 21 + (x % 75);
+		}
+	}, 
+	"choir_aahs": {
+		"name": "Choir", 
+		"channel": 1, 
+		"programID": 52, 
 		"note": function(x){
 			return 21 + (x % 75);
 		}
@@ -41,19 +49,14 @@ var MidiPlayer = function(font, callback) {
 	this._note = undefined;
 
 	// TODO: make this nice and pretty
-	var instruments = {}; 
-	instruments[font] = 0; 
-
-	var fontprop = MidiSoundfonts[font]
+	var fontprop = MidiSoundfonts[font]; 
 
 	MIDI.loadPlugin({
 		soundfontUrl: "./../lib/midi/soundfont/",
-		instruments: Object.keys(instruments),
+		instruments: [font],
 		callback: function() {
-			console.log("Loaded MIDI"); 
-
-			MIDI.setVolume(fontprop.setVolume[0], fontprop.setVolume[1]);
-			MIDI.programChange(fontprop.programChange[0], fontprop.programChange[1]);
+			MIDI.setVolume(0, 127);
+			MIDI.programChange(fontprop.channel, fontprop.programID);
 
 			callback(); 
 		}
@@ -64,7 +67,7 @@ var MidiPlayer = function(font, callback) {
 	}
 
 	this.playNote = function() {
-		MIDI.noteOn(0, me._note, 100);
+		MIDI.noteOn(fontprop.channel, me._note, 100);
 	};
 
 	this.stop = function() {
