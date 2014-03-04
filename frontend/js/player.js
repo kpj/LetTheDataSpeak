@@ -1,7 +1,7 @@
 var PlayerInit = function($masterdiv){
 
 	var musicGenerator = undefined; 
-	var BarPlayer = new bars($masterdiv.find(".right"), 64); 
+	var BarPlayer = new Bars($masterdiv.find(".right"), 64); 
 
 	var interval = undefined;
 	var sequence = undefined;
@@ -10,11 +10,11 @@ var PlayerInit = function($masterdiv){
 	var iterate = function() {
 		var next = sequence.nextInteger(true);
 		
-		//play the music
+		// play the music
 		musicGenerator.setNote(next);
 		musicGenerator.playNote();
 
-		//paly the bars
+		// draw the bars
 		BarPlayer.start(); 
 		BarPlayer.hit(next); 
 		
@@ -23,7 +23,8 @@ var PlayerInit = function($masterdiv){
 	}
 
 	var play = function() {
-		stop(); 
+		stop();
+
 		sequence = new DnaSequence($masterdiv.find(".data").val().toUpperCase());
 		interval = setInterval(iterate, 500);
 		BarPlayer.start(); 
