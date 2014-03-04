@@ -42,7 +42,52 @@ var MidiSoundfonts = {
 		"note": function(x){
 			return 21 + (x % 75);
 		}
-	}
+	},
+
+	"xylophone": {
+		"name": "Xylophone", 
+		"channel": 2, 
+		"programID": 13, 
+		"note": function(x){
+			return 21 + (x % 75);
+		}
+	},
+
+	"violin": {
+		"name": "Violin", 
+		"channel": 3, 
+		"programID": 40, 
+		"note": function(x){
+			return 21 + (x % 75);
+		}
+	},
+
+	"marimba": {
+		"name": "Marimba", 
+		"channel": 4, 
+		"programID": 12, 
+		"note": function(x){
+			return 21 + (x % 75);
+		}
+	},
+
+	"trumpet": {
+		"name": "Trumpet", 
+		"channel": 5, 
+		"programID": 56, 
+		"note": function(x){
+			return 21 + (x % 75);
+		}
+	},
+
+	"acoustic_bass": {
+		"name": "Acoustic Bass", 
+		"channel": 6, 
+		"programID": 32, 
+		"note": function(x){
+			return 21 + (x % 75);
+		}
+	},
 }
 
 
