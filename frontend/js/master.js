@@ -9,4 +9,16 @@ $(function(){
 
 	addTrack(); 
 	addTrack(); 
+
+	$("#playall").click(function(){
+		var frames = $("iframe").each(function(){
+			$(this.contentWindow.document).find(".play").click(); 
+		}); 
+	}); 
+
+	$("#stopall").click(function(){
+		var frames = $("iframe").each(function(){
+			$(this.contentWindow.document).find(".stop").click(); 
+		}); 
+	})
 })
