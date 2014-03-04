@@ -1,22 +1,22 @@
-var bars = function($div, count){
+var Bars = function($div, count) {
 	var state = new Array(count); 
 	
 	//init state
-	for(var i=0;i<state.length;i++){
+	for(var i = 0 ; i < state.length ; i++) {
 		state[i] = 0; 
 	}
 
 	var strokes = 0; 
 
 
-	var newWidth = function(){
+	var newWidth = function() {
 		return Math.floor(Math.min(oWidth, $div.width() / count)); 
 	}
 
 	var startColor = [0, 0, 255]; 
 	var endColor = [0, 255, 0]; 
 
-	for(var i=0;i<state.length;i++){
+	for(var i = 0 ; i < state.length ; i++) {
 		var newDiv = $("<div class='stroke'>").appendTo($div); 
 		var step = (i/count); 
 
@@ -34,24 +34,27 @@ var bars = function($div, count){
 		newDiv.width(0); 
 	}
 
-	this.drawTick = function(){
+	this.drawTick = function() {
 		//draw the current state
 		var strokes = $div.find(".stroke"); 
 		var nw = newWidth(); 
 
 		//set the height
-		for(var i=0;i<state.length;i++){
-			strokes.eq(i).height(2*state[i]).width(nw).css("left", i*nw); 
+		for(var i = 0 ; i < state.length ; i++) {
+			strokes.eq(i)
+			.height(2*state[i])
+			.width(nw)
+			.css("left", i*nw); 
 		}
 	}
 
 	var drop_per_tick = 2; 
 	var tick_length = 50; 
 
-	this.stateTick = function(){
+	this.stateTick = function() {
 		//tick the bars
-		for(var i=0;i<state.length;i++){
-			if(state[i] > drop_per_tick){
+		for(var i = 0 ; i < state.length ; i++) {
+			if(state[i] > drop_per_tick) {
 				state[i] -= drop_per_tick; 
 			} else {
 				state[i] = 0; 
@@ -61,8 +64,8 @@ var bars = function($div, count){
 
 	var me = this; 
 
-	var doTick = function(){
-		if(stopped){
+	var doTick = function() {
+		if(stopped) {
 			started = false; 
 			stopped = false; 
 		} else {
@@ -72,26 +75,26 @@ var bars = function($div, count){
 		}
 	}
 
-	this.hit = function(i){
+	this.hit = function(i) {
 		state[i] = 100; 
 	}
 
 	var started = false; 
 	var stopped = false; 
 
-	this.start = function(){
-		if(!started){
+	this.start = function() {
+		if(!started) {
 			started = true; 
 			doTick(); 
 		}
 	}
 
-	this.stop = function(){
+	this.stop = function() {
 		stopped = true; 
 	}
 
-	this.clear = function(){
-		for(var i=0;i<state.length;i++){
+	this.clear = function() {
+		for(var i = 0 ; i < state.length ; i++) {
 			state[i] = 0; 
 		}
 
