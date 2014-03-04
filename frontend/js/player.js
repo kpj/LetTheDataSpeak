@@ -48,6 +48,12 @@ var PlayerInit = function($masterdiv){
 	$masterdiv.find(".play").click(function() {play(); return false; });
 	$masterdiv.find(".stop").click(function() {stop(); return false; });
 
+	var sel = $masterdiv.find("select"); 
+	for (var key in MidiSoundfonts){
+		sel.append($('<option>').val(key).text(MidiSoundfonts[key].name)); 
+	}
+
+
 	$masterdiv.find("select").change(function(){
 		var newFont = $masterdiv.find("select").attr("disabled", "disabled").val();
 		$masterdiv.find(".play").attr("disabled", "disabled");  
