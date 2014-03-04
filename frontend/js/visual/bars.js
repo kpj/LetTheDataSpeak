@@ -13,13 +13,20 @@ var bars = function($div, count){
 		return Math.floor(Math.min(oWidth, $div.width() / count)); 
 	}
 
+	var startColor = [0, 0, 255]; 
+	var endColor = [0, 255, 0]; 
+
 	for(var i=0;i<state.length;i++){
 		var newDiv = $("<div class='stroke'>").appendTo($div); 
-		var step = Math.round((i/count)*255); 
+		var step = (i/count); 
+
+		var c0 = Math.floor(startColor[0]+(endColor[0] - startColor[0])*step); 
+		var c1 = Math.floor(startColor[1]+(endColor[1] - startColor[1])*step); 
+		var c2 = Math.floor(startColor[2]+(endColor[2] - startColor[2])*step); 
 
 		newDiv.css({
 			"left": i*newDiv.width(), 
-			"background-color": "rgb(0, "+step.toString()+", "+(255-step).toString()+")"
+			"background-color": "rgb("+c0.toString()+", "+c1.toString()+", "+c2.toString()+")"
 		}); 
 
 		oWidth = newDiv.width(); 
