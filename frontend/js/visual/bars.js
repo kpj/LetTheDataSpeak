@@ -39,8 +39,6 @@ var bars = function($div, count){
 		var strokes = $div.find(".stroke"); 
 		var nw = newWidth(); 
 
-		console.log("width", nw); 
-
 		//set the height
 		for(var i=0;i<state.length;i++){
 			strokes.eq(i).height(2*state[i]).width(nw).css("left", i*nw); 
@@ -90,5 +88,13 @@ var bars = function($div, count){
 
 	this.stop = function(){
 		stopped = true; 
+	}
+
+	this.clear = function(){
+		for(var i=0;i<state.length;i++){
+			state[i] = 0; 
+		}
+
+		this.drawTick(); 
 	}
 }

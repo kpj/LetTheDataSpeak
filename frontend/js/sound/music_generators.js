@@ -23,24 +23,24 @@ var SimpleWaves = function() {
 	}
 }
 
-var MidiPlayer = function() {
+var MidiPlayer = function(font, callback) {
 	var me = this;
 	this._note = undefined;
 
 	// TODO: make this nice and pretty
-	var instruments = {
-		"acoustic_grand_piano": 0
-	};
+	var instruments = {}; 
+	instruments[font] = 0; 
+
 	MIDI.loadPlugin({
-	soundfontUrl: "./lib/midi/soundfont/",
-	instruments: Object.keys(instruments),
-	callback: function() {
+		soundfontUrl: "./lib/midi/soundfont/",
+		instruments: Object.keys(instruments),
+		callback: function() {
 			console.log("Loaded MIDI"); 
 
 			MIDI.setVolume(0, 127);
 			MIDI.programChange(0, 0);
 
-			$("body").data("MIDIReady", true).trigger("MIDIReady"); 
+			callback(); 
 		}
 	});
 

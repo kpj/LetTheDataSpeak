@@ -1,6 +1,6 @@
 var PlayerInit = function($masterdiv){
 
-	var musicGenerator = new MidiPlayer();
+	var musicGenerator = undefined; 
 	var BarPlayer = new bars($masterdiv.find(".right"), 64); 
 
 	var interval = undefined;
@@ -19,7 +19,7 @@ var PlayerInit = function($masterdiv){
 		BarPlayer.hit(next); 
 		
 		//log output to console
-		console.log(next); 
+		//console.log(next); 
 	}
 
 	var play = function() {
@@ -27,6 +27,8 @@ var PlayerInit = function($masterdiv){
 		sequence = new DnaSequence($masterdiv.find(".data").val().toUpperCase());
 		interval = setInterval(iterate, 500);
 		BarPlayer.start(); 
+
+		$masterdiv.find("select").attr("disabled", "disabled"); 
 	};
 
 	var stop = function() {
@@ -35,23 +37,25 @@ var PlayerInit = function($masterdiv){
 
 			musicGenerator.stop();
 
-			setTimeout(function(){BarPlayer.stop(); }, 50*50+1000); 
+			BarPlayer.clear(); 
+			BarPlayer.stop(); 
 			interval = undefined;
 		}
+
+		$masterdiv.find("select").removeAttr("disabled"); 
 	};
 
 	$masterdiv.find(".play").click(function() {play(); return false; });
-	$masterdiv.find(".stop").click(function() {stop(); return false; }); 
+	$masterdiv.find(".stop").click(function() {stop(); return false; });
 
-	var callback = function(){
-		$masterdiv.find(".play").removeAttr("disabled").length; 
-	}
-
-	if($("body").attr("MIDIReady") == true){
-		callback(); 
-	} else {
-		$("body").on("MIDIReady", callback); 
-	}
+	$masterdiv.find("select").change(function(){
+		var newFont = $masterdiv.find("select").attr("disabled", "disabled").val();
+		$masterdiv.find(".play").attr("disabled", "disabled");  
+		musicGenerator = new MidiPlayer(newFont, function(){
+			$masterdiv.find(".play").removeAttr("disabled"); 
+			$masterdiv.find("select").removeAttr("disabled"); 
+		}); 
+	}).change(); 
 }
 
 $(function(){
