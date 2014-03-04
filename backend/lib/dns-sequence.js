@@ -19,6 +19,22 @@ function DnaSequence(seq) {
 		return chunk;
 	}
 
+	this.percent = function(){
+		return me.index / me.sequence.length; 
+	}
+
+	this.stateSequence = function(){
+		var state = me.index; 
+		me.index -= 3;
+		if(me.index < 0){
+			me.index += me.sequence.length; 
+		}
+		var res = [me.next(true), me.next(true), me.next(true)]; 
+
+		me.index = state; 
+		return res; 
+	}
+
 	this.mapping = {
 		'A': '0',
 		'G': '1',

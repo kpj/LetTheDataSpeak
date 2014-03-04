@@ -7,11 +7,14 @@ var Bars = function($div, count) {
 	}
 
 	var strokes = 0; 
-
+	var where = 0; 
 
 	var newWidth = function() {
 		return Math.floor(Math.min(oWidth, $div.width() / count)); 
 	}
+
+	var $vbar = $("<div class='vbar'>").appendTo($div); 
+	var $vtext = $("<div>").appendTo($("<div class='vtext'>").appendTo($div)); 
 
 	var startColor = [0, 0, 255]; 
 	var endColor = [0, 255, 0]; 
@@ -34,6 +37,9 @@ var Bars = function($div, count) {
 		newDiv.width(0); 
 	}
 
+	var drop_per_tick = 2; 
+	var tick_length = 50; 
+
 	this.drawTick = function() {
 		//draw the current state
 		var strokes = $div.find(".stroke"); 
@@ -46,10 +52,22 @@ var Bars = function($div, count) {
 			.width(nw)
 			.css("left", i*nw); 
 		}
+		
 	}
 
-	var drop_per_tick = 2; 
-	var tick_length = 50; 
+	this.vbarTick = function(state, length){
+		var to = $vbar.parent().width()*where; 
+
+		$vbar.stop().animate({"left": to+5}, length); 
+
+		$vtext.empty().append(
+			$("<span class='prev'>").text(state[0]), 
+			$("<span class='cur'>").text(state[1]), 
+			$("<span class='next'>").text(state[2])
+		).css("margin-top", -$vtext.height() / 2); 	
+	}
+
+	this.vbarTick(["", "", ""], 0); //make one tick
 
 	this.stateTick = function() {
 		//tick the bars
@@ -75,8 +93,9 @@ var Bars = function($div, count) {
 		}
 	}
 
-	this.hit = function(i) {
+	this.hit = function(i, j) {
 		state[i] = 100; 
+		where = j; 
 	}
 
 	var started = false; 
@@ -97,7 +116,9 @@ var Bars = function($div, count) {
 		for(var i = 0 ; i < state.length ; i++) {
 			state[i] = 0; 
 		}
+		where = 0; 
 
 		this.drawTick(); 
+		this.vbarTick(["", "", ""], 0); 
 	}
 }

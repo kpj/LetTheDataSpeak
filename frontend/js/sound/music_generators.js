@@ -25,6 +25,7 @@ var SimpleWaves = function() {
 
 /* insert fonts here */
 var MidiSoundfonts = {
+
 	"acoustic_grand_piano": {
 		"name": "Piano", 
 		"channel": 0, 
@@ -33,6 +34,7 @@ var MidiSoundfonts = {
 			return 21 + (x % 75);
 		}
 	}, 
+	
 	"choir_aahs": {
 		"name": "Choir", 
 		"channel": 1, 
