@@ -6,6 +6,10 @@ Code and idea repository for the final project. Have some fun here: http://kpj.g
 
 Compare the sound of intergenic regions and open reading frames.
 
+## Misc
+* Add big option-pane which allows the user to adjust *everything*.
+* Special formatting class which allows to format the DNA strand (e.g. look for ORFs).
+
 ## Frontend
 
 ### Languages
