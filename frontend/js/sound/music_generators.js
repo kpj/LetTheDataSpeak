@@ -40,8 +40,7 @@ var MidiPlayer = function() {
 			MIDI.setVolume(0, 127);
 			MIDI.programChange(0, 0);
 
-			// enable play button
-			$('#play').removeAttr('disabled');
+			$("body").data("MIDIReady", true).trigger("MIDIReady"); 
 		}
 	});
 
