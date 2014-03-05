@@ -9,7 +9,6 @@ var PlayerInit = function($masterdiv){
 	var intervalLength = 500; 
 
 	var iterate = function() {
-
 		var state = sequence.stateSequence(); 
 
 		var next = sequence.nextInteger(true);
