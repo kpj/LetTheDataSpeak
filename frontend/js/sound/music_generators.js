@@ -31,7 +31,8 @@ var MidiSoundfonts = {
 		"channel": 0, 
 		"programID": 0, 
 		"note": function(x){
-			return 21 + (x % 75);
+			console.log(21+Math.floor(87/63 * x));
+			return 21 + Math.floor(87/63 * x);
 		}
 	}, 
 	
