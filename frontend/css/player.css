@@ -86,7 +86,7 @@ body {
 	position: fixed;
 	z-index: 300;
 
-	background-color: gray;
+	background-color: #CCCCCC;
 
 	border-style: dashed;
 	border-radius: 10px;

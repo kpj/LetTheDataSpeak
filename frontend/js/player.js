@@ -63,6 +63,10 @@ var PlayerInit = function($masterdiv){
 				var ele = $(e.target);
 				config[ele.data('key')].value = ele.val();
 				$('#' + ele.data('key') + '_val').text(ele.val());
+
+				// adjust interval immediately
+				clearInterval(interval);
+				interval = setInterval(iterate, config.intervalLength.value);
 			})
 		;
 
@@ -71,7 +75,7 @@ var PlayerInit = function($masterdiv){
 		}
 
 		$(".options_panel").append(
-			'<span>' + p + '</span>',
+			'<span>' + cur.name + ': </span>',
 			ele,
 			'(<span id="' + p + '_val">' + ele.val() + '</span>)',
 			'<br />'
