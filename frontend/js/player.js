@@ -6,7 +6,6 @@ var PlayerInit = function($masterdiv){
 	var interval = undefined;
 	var sequence = undefined;
 
-	var intervalLength = 500; 
 
 	var iterate = function() {
 		var state = sequence.stateSequence(); 
@@ -21,14 +20,14 @@ var PlayerInit = function($masterdiv){
 		// draw the bars
 		BarPlayer.start(); 
 		BarPlayer.hit(next, percent); 
-		BarPlayer.vbarTick(state, intervalLength); 
+		BarPlayer.vbarTick(state, config.intervalLength.value); 
 	}
 
 	var play = function() {
 		stop();
 
 		sequence = new DnaSequence($masterdiv.find(".data").val().toUpperCase());
-		interval = setInterval(iterate, intervalLength);
+		interval = setInterval(iterate, config.intervalLength.value);
 		BarPlayer.start(); 
 
 		$masterdiv.find("select").attr("disabled", "disabled"); 
@@ -50,6 +49,35 @@ var PlayerInit = function($masterdiv){
 
 	$masterdiv.find(".play").click(function() {play(); return false; });
 	$masterdiv.find(".stop").click(function() {stop(); return false; });
+	$masterdiv.find(".options").click(function() { $(".options_panel").toggle(); });
+
+	// create options panel
+	for(var p in config) {
+		var cur = config[p];
+		var ele = $('<input>')
+			.attr('type', cur.type)
+			.attr('value', cur.default)
+			.data('key', p)
+			.val(cur.value)
+			.change(function(e) {
+				var ele = $(e.target);
+				config[ele.data('key')].value = ele.val();
+				$('#' + ele.data('key') + '_val').text(ele.val());
+			})
+		;
+
+		for(var k in cur.input) {
+			ele.attr(k, cur.input[k]);
+		}
+
+		$(".options_panel").append(
+			'<span>' + p + '</span>',
+			ele,
+			'(<span id="' + p + '_val">' + ele.val() + '</span>)',
+			'<br />'
+		);
+	}
+	$(".options_panel").hide();
 
 	var sel = $masterdiv.find("select"); 
 	for (var key in MidiSoundfonts){
