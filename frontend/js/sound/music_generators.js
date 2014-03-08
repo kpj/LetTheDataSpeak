@@ -88,6 +88,15 @@ var MidiSoundfonts = {
 			return 21 + (x % 75);
 		}
 	},
+
+	"synth_drum": {
+		"name": "Synth Drum", 
+		"channel": 6, 
+		"programID": 118, 
+		"note": function(x){
+			return 21 + (x % 75);
+		}
+	},
 }
 
 
