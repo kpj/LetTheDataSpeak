@@ -97,6 +97,15 @@ var MidiSoundfonts = {
 			return 21 + (x % 75);
 		}
 	},
+
+	"fx_6_goblins": {
+		"name": "Goblins", 
+		"channel": 6, 
+		"programID": 101, 
+		"note": function(x){
+			return 21 + (x % 75);
+		}
+	},
 }
 
 
