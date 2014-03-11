@@ -1,6 +1,6 @@
 # Let The Data Speak
 
-Code and idea repository for the final project. Have some fun here: http://kpj.github.io/LetTheDataSpeak/frontend/.
+Code and idea repository for the final project.
 
 ## Story
 
