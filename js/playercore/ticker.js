@@ -2,7 +2,7 @@ var Ticker = function(input, div, config, callback){
 	var me = this;
 
 	var preparsedObject = Parser(
-		Parser.Parsers[config.parser](input, config.parserConfig)
+		Parser.Parsers[config.parser](input)
 	); 
 
 	var div = $(div); 
@@ -15,11 +15,10 @@ var Ticker = function(input, div, config, callback){
 	//Timeing and stuff
 	var Timeouts = []; 
 	var isRunning = false; 
-	var isStopped = false; 
 
 
 	this.cycle = function(){
-		if(!isStopped){
+		if(isRunning){
 			//set all the timeouts
 
 			preparsedObject.text.map(function(e){
@@ -64,7 +63,6 @@ var Ticker = function(input, div, config, callback){
 
 	this.drawText = function(textObj){
 		//draw some text
-		//todo: actually implement this. 
 		TheVisual.setText(textObj.prevText, textObj.text, textObj.nextText); 
 	}
 
@@ -75,10 +73,11 @@ var Ticker = function(input, div, config, callback){
 
 		var len = config.tickLength*obj.length; 
 
-		TheSound.setNote(obj.note); 
-		TheSound.playNote(len); 
-
 		TheVisual.hit(obj.note, len); 
+
+		TheSound.setNote(obj.note); 
+		TheSound.setVolume(config.baseVolume+obj.volume); 
+		TheSound.playNote(len); 
 	}
 
 	this.stop = function(){
@@ -91,15 +90,14 @@ var Ticker = function(input, div, config, callback){
 		TheVisual.stop(); 
 		TheVisual.clear(); 
 
-		isStopped = true; 
+		isRunning = false; 
 	}
 
 	//intialise and call the calllback
 
 	TheSound = Player(config.player, config.instrument, function(){
-		callback(me); 
+		callback.apply(me); 
 	}); 
 
 	TheVisual = new Visualiser(div, 64); 
-	//TODO: have the red bar thingy
 }

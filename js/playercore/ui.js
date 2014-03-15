@@ -17,10 +17,6 @@ UI.init = function(){
 		UI.stop(); 
 	}); 
 
-	UI._elements.ParserConfig.click(function(){
-		UI.ParserConfig(); 
-	}); 
-
 	UI._elements.PlayerConfig.click(function(){
 		UI.PlayerConfig(); 
 	}); 
@@ -55,10 +51,6 @@ UI.stop = function(){
 	UI._lockAll(); 
 	UI._ticker.stop(); 
 	UI._stopState(); 
-}; 
-
-UI.ParserConfig = function(){
-	//called when hitting the Parser Config Button
 }; 
 
 UI.PlayerConfig = function(){
@@ -159,7 +151,6 @@ UI._lockAll = function(){
 
 	UI._elements.play.attr("disabled", "disabled");  
 	UI._elements.stop.attr("disabled", "disabled");
-	UI._elements.ParserConfig.attr("disabled", "disabled"); 
 	UI._elements.PlayerConfig.attr("disabled", "disabled"); 
 	UI._elements.parserSelect.attr("disabled", "disabled");  
 	UI._elements.playerSelect.attr("disabled", "disabled"); 
@@ -171,7 +162,6 @@ UI._unLockAll = function(){
 
 	UI._elements.play.removeAttr("disabled"); 
 	UI._elements.stop.removeAttr("disabled"); 
-	UI._elements.ParserConfig.removeAttr("disabled"); 
 	UI._elements.PlayerConfig.removeAttr("disabled"); 
 	UI._elements.parserSelect.removeAttr("disabled"); 
 	UI._elements.playerSelect.removeAttr("disabled"); 
@@ -196,7 +186,6 @@ UI._elements = {
 	"data": $("textarea.data"), 
 	"play": $(".play"), 
 	"stop": $(".stop"), 
-	"ParserConfig": $(".options.parser"), 
 	"PlayerConfig": $(".options.player"), 
 	"parserSelect": $(".selectable.parser"), 
 	"playerSelect": $(".selectable.player"), 
@@ -208,6 +197,6 @@ UI._config = {
 	"parser": undefined, 
 	"instrument": undefined, 
 	"content": undefined, 
-	"parserConfig": undefined, 
-	"tickLength": 100
+	"tickLength": 100, 
+	"baseVolume": 127
 }; 

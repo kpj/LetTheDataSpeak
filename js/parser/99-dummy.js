@@ -1,5 +1,5 @@
 Parser.register((function(){
-	var DummyParser = function(input, config){
+	var DummyParser = function(input){
 		var result = []; 
 
 		for(var i=0;i<64;i++){
@@ -9,7 +9,8 @@ Parser.register((function(){
 				"type": "note", 
 				"at": i, 
 				"length": 1, 
-				"note": i
+				"note": i, 
+				"volume": Math.round(Math.random()*100) - 50
 			}); 
 
 			result.push({
@@ -25,27 +26,6 @@ Parser.register((function(){
 
 	DummyParser.desc = "Dummy"; 
 	DummyParser.uname = "dummy"; 
-	DummyParser.config = {
-		"num": {
-			"name": "Number", 
-			"type": "number", 
-			"params": {"min": 100, "max": 1000}, 
-			"default": 200, 
-			"help": "A numerical parameter"
-		}, 
-		"bool": {
-			"name": "Flag", 
-			"type": "boolean", 
-			"default": false, 
-			"help": "A boolean parameter"
-		}, 
-		"string": {
-			"name": "Text", 
-			"type": "string", 
-			"default": "", 
-			"help": "A string parameter"
-		}
-	}; 
 
 	return DummyParser; 
 })()); 

@@ -3,15 +3,17 @@ Player.register((function(){
 		var me = this;
 		this._note = undefined;
 
+		var channel = 0; 
+
 		var fontprop = MidiPlayer.SoundFonts[font]; 
 
 		MIDI.loadPlugin({
 			soundfontUrl: "./../lib/midi/soundfont/",
 			instruments: [font],
 			callback: function() {
-				MIDI.setVolume(0, 127);
-				MIDI.programChange(fontprop.channel, fontprop.programID);
-
+				for(var i=0;i<16;i++){
+					MIDI.programChange(i, fontprop.programID);
+				}
 				callback(); 
 			}
 		});
@@ -20,13 +22,18 @@ Player.register((function(){
 			me._note = fontprop.note(note); 
 		}
 
+		this.setVolume = function(vol){
+			MIDI.setVolume(channel, vol);
+		}
+
 		this.playNote = function(length) {
 			var length = (typeof length == "number")?length:100; 
-			MIDI.noteOn(fontprop.channel, me._note, length);
+			MIDI.noteOn(channel, me._note, length);
+			channel = (channel + 1) % 16; 
 		};
 
 		this.stop = function() {
-			MIDI.noteOff(fontprop.channel, me._note);
+			MIDI.noteOff(channel, me._note);
 			this._note = undefined;
 		}
 
@@ -124,6 +131,7 @@ Player.register((function(){
 	MidiPlayer.uname = "midi"; //name of the player
 
 	MidiPlayer.font_options = {}; //font options
+
 	for(var key in MidiPlayer.SoundFonts){
 		if(MidiPlayer.SoundFonts.hasOwnProperty(key)){
 			MidiPlayer.font_options[key] = MidiPlayer.SoundFonts[key].name; 

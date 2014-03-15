@@ -1,5 +1,5 @@
 Parser.register((function(){
-	var TripletsParser = function(input, config){
+	var TripletsParser = function(input){
 		//TODO: Make this properly
 		var result = []; 
 		var i = 0; 
@@ -19,7 +19,8 @@ Parser.register((function(){
 						"type": "note", 
 						"at": i, 
 						"length": 1, 
-						"note": noteId
+						"note": noteId, 
+						"volume": 0
 					}); 
 
 					result.push({
@@ -39,7 +40,6 @@ Parser.register((function(){
 
 	TripletsParser.desc = "Triplets"; 
 	TripletsParser.uname = "triplets"; 
-	TripletsParser.config = {}; 
 
 	return TripletsParser; 
 })()); 

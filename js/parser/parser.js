@@ -65,9 +65,9 @@ var Parser = function(ModeArray){
 
 	if(playLength != textLength){
 		console.warn("Warning: textLength and playLength mismatch, using maximum length for cycle length. "); 
-		length = Math.max(playLength, textLength); 
+		playLength = Math.max(playLength, textLength); 
 	}
-	var cycleLength = playLength; 
+	var cycleLength = playLength+1; 
 	
 	return {
 		"text": TextArray, 

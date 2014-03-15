@@ -35,7 +35,7 @@ body, .row, .row > .left, .row > .right {
 
 .left > .middle {
 	position: fixed;
-	top: 50%;
+	top: 30%; 
 	width: 20%; 
 }
 

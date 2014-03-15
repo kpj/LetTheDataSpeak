@@ -89,10 +89,10 @@ var Visualiser = function($div, count) {
 	}
 
 	this.hit = function(i, h) {
-		if (h < 1000){
-			h = 3000; 
+		if (h < 1500){
+			h = 1500; 
 		}
-		state[i] = Math.round(h/tick_length); 
+		state[i] = Math.round(h*drop_per_tick/tick_length); 
 	}
 
 	var started = false; 
