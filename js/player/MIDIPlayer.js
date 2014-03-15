@@ -24,6 +24,8 @@ Player.register((function(){
 
 		this.setVolume = function(vol){
 			MIDI.setVolume(channel, vol);
+
+			console.log("Set volume to", vol);
 		}
 
 		this.playNote = function(length) {
