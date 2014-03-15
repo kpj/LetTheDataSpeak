@@ -22,8 +22,6 @@ Parser.register((function(){
 						"note": noteId
 					}); 
 
-					console.log(str); 
-
 					result.push({
 						"type": "display", 
 						"at": i, 

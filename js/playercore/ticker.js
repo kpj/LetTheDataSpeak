@@ -40,7 +40,6 @@ var Ticker = function(input, div, config, callback){
 
 			Timeouts.push(window.setTimeout(function(){
 				//the next cycle
-				console.log("next cycle"); 
 				me.cycle(); 
 			}, preparsedObject.length*tickLength)); 
 
