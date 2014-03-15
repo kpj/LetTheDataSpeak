@@ -1,4 +1,4 @@
-var Bars = function($div, count) {
+var Visualiser = function($div, count) {
 	var state = new Array(count); 
 	
 	//init state
@@ -7,11 +7,12 @@ var Bars = function($div, count) {
 	}
 
 	var strokes = 0; 
-	var where = 0; 
 
 	var newWidth = function() {
-		return Math.floor(Math.min(oWidth, $div.width() / count)); 
+		return Math.floor(Math.min(oWidth, $div.width() / (count+1))); 
 	}
+
+	$div.empty(); //empty junk from before
 
 	var $vbar = $("<div class='vbar'>").appendTo($div); 
 	var $vtext = $("<div>").appendTo($("<div class='vtext'>").appendTo($div)); 
@@ -28,7 +29,7 @@ var Bars = function($div, count) {
 		var c2 = Math.floor(startColor[2]+(endColor[2] - startColor[2])*step); 
 
 		newDiv.css({
-			"left": i*newDiv.width(), 
+			"left": (i+1)*newDiv.width(), 
 			"background-color": "rgb("+c0.toString()+", "+c1.toString()+", "+c2.toString()+")"
 		}); 
 
@@ -50,24 +51,10 @@ var Bars = function($div, count) {
 			strokes.eq(i)
 			.height(2*state[i])
 			.width(nw)
-			.css("left", i*nw); 
+			.css("left", (i+1)*nw); 
 		}
 		
 	}
-
-	this.vbarTick = function(state, length){
-		var to = $vbar.parent().width()*where; 
-
-		$vbar.stop().animate({"left": to+5}, length); 
-
-		$vtext.empty().append(
-			$("<span class='prev'>").text(state[0]), 
-			$("<span class='cur'>").text(state[1]), 
-			$("<span class='next'>").text(state[2])
-		).css("margin-top", -$vtext.height() / 2); 	
-	}
-
-	this.vbarTick(["", "", ""], 0); //make one tick
 
 	this.stateTick = function() {
 		//tick the bars
@@ -78,6 +65,14 @@ var Bars = function($div, count) {
 				state[i] = 0; 
 			}
 		}
+	}
+
+	this.setText = function(last, now, next){
+		$vtext.empty().append(
+			$("<span class='prev'>").text(last), 
+			$("<span class='cur'>").text(now), 
+			$("<span class='next'>").text(next)
+		).css("margin-top", -$vtext.height() / 2);
 	}
 
 	var me = this; 
@@ -93,9 +88,11 @@ var Bars = function($div, count) {
 		}
 	}
 
-	this.hit = function(i, j) {
-		state[i] = 100; 
-		where = j; 
+	this.hit = function(i, h) {
+		if (h < 1000){
+			h = 3000; 
+		}
+		state[i] = Math.round(h/tick_length); 
 	}
 
 	var started = false; 
@@ -108,17 +105,17 @@ var Bars = function($div, count) {
 		}
 	}
 
+	this.moveLine = function(len){
+		var margin = Math.floor(Math.min(oWidth, $div.width() / count)); 
+		$vbar.stop().css({"left": margin}); 
+		$vbar.animate({"left": $div.width() - margin}, len); 
+	}
+
 	this.stop = function() {
 		stopped = true; 
 	}
 
 	this.clear = function() {
-		for(var i = 0 ; i < state.length ; i++) {
-			state[i] = 0; 
-		}
-		where = 0; 
-
-		this.drawTick(); 
-		this.vbarTick(["", "", ""], 0); 
+		$div.empty();
 	}
 }
