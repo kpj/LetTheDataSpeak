@@ -17,6 +17,7 @@ $(function(){
 		/* the parser + parsers */
 		"../js/parser/parser.js", 
 		"../js/parser/00-triplets.js", 
+		"../js/parser/10-codon_frequency.js", 
 		"../js/parser/99-dummy.js", 
 
 		/* the player + players */
