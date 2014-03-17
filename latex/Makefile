@@ -1,5 +1,5 @@
 all: clean setup
-	cd dest && latexmk -pdf proposal.tex
+	cd dest && latexmk -pdf -interaction=nonstopmode proposal.tex
 	cd dest && cp proposal.pdf ..
 setup:
 	mkdir dest
