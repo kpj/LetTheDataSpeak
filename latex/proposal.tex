@@ -1,32 +1,49 @@
 \documentclass[10pt]{article}
+%Spaces etc
+\usepackage{setspace}
 
+% Headers
 \usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
-\usepackage[backend=biber]{biblatex}
-\usepackage{titlesec}
-\usepackage{setspace}
 
 
 \usepackage{fancyhdr}
-\pagestyle{fancy}
 
+% BibTex
+\usepackage[backend=biber]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{sources.bib}
+
+% The page headers
+\pagestyle{fancy}
 \fancyhf{}
 \lhead{ \fancyplain{}{Let The DNA Speak} }
 \rhead{ \fancyplain{}{\thepage} }
 
-\DeclareLanguageMapping{american}{american-apa}
-\addbibresource{sources.bib}
-
 \title{Let The DNA Speak\\Project Proposal}
 
-\author{Stefan Appelhoff, Kim Philipp Jablonski, \\Nina Krüger, Sourabh Lal, \\Tom Wiesing \& Mengyuan Zhang}
+\author{Stefan Appelhoff, Kim Philipp Jablonski, Nina Krüger, Sourabh Lal, Tom Wiesing \& Mengyuan Zhang}
 
 \begin{document}
 
-\clearpage
-\maketitle
+\begin{titlepage}
 \thispagestyle{empty}
-\newpage
+\begin{center}
+
+\textsc{\Huge Let the DNA speak}\\[2 cm]
+\textsc{\Huge Project Proposal}\\[7cm]
+
+\textsc{\Large Jacobs University Bremen\\
+Spring Semester 2014\\020077 USC - Let the Data Speak}\\[2 cm]
+
+\textsc{\Large Instructors:\\Dr. Aidan Boyle\\Prof. Dr. Adalbert F.X. Wilhelm}\\[1 cm]
+
+\textsc{\Large Authors:\\Stefan Appelhoff, Kim Philipp Jablonski, \\Nina Krüger, Sourabh Lal, Tom Wiesing \& Mengyuan Zhang}
+
+\end{center}
+
+\end{titlepage}
+
 
 \clearpage
 \thispagestyle{empty}
