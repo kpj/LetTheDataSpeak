@@ -8,6 +8,11 @@
 
 \usepackage{titlesec}
 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+
 \addbibresource{sources.bib}
 
 \title{Let The DNA Speak\\Project Proposal}
@@ -16,10 +21,17 @@
 
 \begin{document}
 
+\clearpage
 \maketitle
+\thispagestyle{empty}
+\newpage
 
+\clearpage
+\thispagestyle{empty}
 \tableofcontents
+\newpage
 
+\setcounter{page}{1}
 \section{Background \& Motivation}
 
 When we were discussing about what we wanted to do as a group for our final sonification project, we all on the one hand wanted to deal with complex data that would not be easily analyzed in any other way than sonification and on the other hand we wanted the whole project to also have a relevance to a certain academic field. Because our group involves diverse majors such as computer sciences, psychology, mathematics, and computational biology, it was a bit difficult at first to find a common ground with a topic that could spark an interest for everyone. However, after some brainstorming we agreed to the topic of analyzing DNA.
@@ -59,6 +71,8 @@ However daunting the problem of the “Cognitive Capacity Hypothesis” might so
 
 TBD Mengyuan
 
+
+\newpage
 \nocite{*}
 \printbibliography
 
