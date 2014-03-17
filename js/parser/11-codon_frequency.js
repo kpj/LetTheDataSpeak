@@ -38,9 +38,9 @@ Parser.register((function(){
 					result.push({
 						"type": "note", 
 						"at": i, 
-						"length": 1, 
+						"length": Math.round(Math.log(codon_frequencies[codon]) * 10), 
 						"note": noteId, 
-						"volume": Math.log(codon_frequencies[codon]) * 20
+						"volume": 0
 					}); 
 
 					result.push({
@@ -58,8 +58,8 @@ Parser.register((function(){
 		return result; 
 	}; 
 
-	TripletsParser.desc = "CodonFrequencyVolume"; 
-	TripletsParser.uname = "codon_freq_vol"; 
+	TripletsParser.desc = "CodonFrequencyTempo"; 
+	TripletsParser.uname = "codon_freq_tempo"; 
 
 	return TripletsParser; 
 })()); 
