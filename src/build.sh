@@ -1,4 +1,4 @@
 set -e
 set -u
 
-latexmk -pdf
+latexmk -pdf -interaction=nonstopmode
