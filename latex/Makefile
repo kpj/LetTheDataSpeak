@@ -1,7 +1,5 @@
 all: clean setup
-	cd dest && latex proposal.tex
-	cd dest && bibtex proposal.aux
-	cd dest && pdflatex proposal.tex
+	cd dest && latexmk -pdf proposal.tex
 	cd dest && cp proposal.pdf ..
 setup:
 	mkdir dest
