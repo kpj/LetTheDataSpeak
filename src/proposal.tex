@@ -3,6 +3,12 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
 
+\usepackage[american]{babel}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+
+\addbibresource{literatur.bib}
+
 \title{Let The DNA Speak\\Project Proposal}
 
 \author{Stefan Appelhoff, Kim Philipp Jablonski, \\Nina Krüger, Sourabh Lal, \\Tom Wiesing \& Mengyuan Zhang}
@@ -43,25 +49,7 @@ TBD Stefan
 
 TBD Mengyuan
 
-\section{References}
-
-\begin{enumerate}
-	\item \url{http://www.ebi.ac.uk/ena/}
-	\item \url{http://sciencecentres.org.uk/projects/handsondna/4.8\%20-\%20Amazing\%20facts\%20and\%20quiz\%20questions.pdf}
-	\item \url{http://holykaw.alltop.com/17-interesting-facts-about-dna}
-	\item \url{http://chemistry.about.com/od/lecturenoteslab1/a/10-Interesting-Dna-Facts.htm}
-	\item \url{http://www.express.co.uk/fun/top10facts/394517/Top-10-facts-about-DNA}
-	\item \url{http://www.bbc.com/news/magazine-25975712}
-	\item \url{http://sonification.de/handbook/}
-	\item \url{http://datasonification.tumblr.com/}
-	\item \url{http://lhcsound.hep.ucl.ac.uk/page_sonification/Sonification.html}
-	\item \url{http://sonify.psych.gatech.edu/research/}
-	\item \url{http://lhcsound.wordpress.com/2011/01/03/how-we-sonify-atlas-data-technical-notes/}
-	\item \url{http://www.letthednaspeak.tk}
-	\item \url{http://mohayonao.github.io/timbre.js}
-	\item \url{https://github.com/mudcube/MIDI.js}
-	\item \url{http://blog.gleitzman.com/post/63283830260/midi-js-playing-audio-in-the-browser-with-javascript}
-
-\end{enumerate}
+\nocite{*}
+\printbibliography
 
 \end{document}
