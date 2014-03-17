@@ -6,3 +6,5 @@
 *.bcf
 *.blg
 *.run.xml
+*.dvi
+*.fls
