@@ -5,13 +5,16 @@
 
 \usepackage[american]{babel}
 \usepackage{biblatex}
-
 \usepackage{titlesec}
+\usepackage{setspace}
+
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[R]{\thepage}
+\lhead{ \fancyplain{}{Let The DNA Speak} }
+\rhead{ \fancyplain{}{\thepage} }
+
 
 \addbibresource{sources.bib}
 
@@ -61,7 +64,7 @@ Our program mainly allows for fast comparison of very large DNA sequences. For i
 DNA sequencing is relatively easy. However, you still have to compare every single nucleotide of your original sequence to every single nucleotide of your cloned gene. Naturally, this would be a huge waste of time.
 Now further imagine you could listen to music while you work. Then, suddenly the music sounds a little off and exactly that tells you that there is a wrong triplet in your cloned DNA sequence. In exactly the same way you could compare several sequences at the same time and as soon as you hear something weird, you can just check the corresponding nucleotide triplets, which are depicted on the screen and easily identify the faulty one. 
 
-\section{Problems with our approach}
+\section{Challenges to our approach}
 In several psychological studies, listening to music while working has been shown to disrupt the work flow (\cite{fast_loud}) and impairing the performance. The "Cognitive Capacity Hypothesis" is often put forward to explain for these detrimental effects of multitasking (\cite{baddley_2003}): In summary, the hypothesis describes our attentional system as a limited channel, that only has a certain capacity. Information or any sensory input from the environment to the human is regarded as a flow of information that has to go through the limited channel of our attention. In the case of music we are dealing with a specifically problematic case, because music is using the same modular brain regions as speech (\cite{peretez_colthearth_2003}). This hypothesis is put forward by comparing musical entities such as chords to entities of speech such as words. Reading alone places a high demand on attention (\cite{Carretti_Borella_Cornoldi_De_Beni_2009}), not to speak of the combined attentional costs of reading, writing, listening to music and perhaps even talking or checking a computer screen. With this prospect, it seems very likely that the combined attentional costs due to this multitasking exceed our “limited capacity” of attention. The result would not be the wanted overall gain for performance through combining tasks with simultaneously checking DNA through music, but rather an overall loss in efficiency.
 
 \section{Possible Solutions}
@@ -83,12 +86,12 @@ However daunting the problem of the “Cognitive Capacity Hypothesis” might so
     \end{tabular}
 \end{center}
 
-
 \newpage
 \clearpage
-\thispagestyle{empty}
+\pagestyle{empty}
 
 \nocite{*}
+\doublespacing
 \printbibliography
 
 \end{document}
