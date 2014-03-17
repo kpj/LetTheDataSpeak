@@ -1,4 +1,4 @@
-# Let The DNA Speak
+# Let The DNA Speak - Project Proposal
 by Stefan Appelhoff, Kim Philipp Jablonski, Nina Kr&uuml;ger, Sourabh Lal, Tom Wiesing and Mengyuan Zhang
 
 ## Introduction
