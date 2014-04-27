@@ -25,6 +25,7 @@ $(function(){
 		/* the player + players */
 		"../js/player/player.js", 
 		"../js/player/MIDIPlayer.js", 
+		"../js/player/MIDIPlayer2.js", 
 		"../js/player/SimpleWaves.js", 
 
 		/* the visualiser */
