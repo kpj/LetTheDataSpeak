@@ -149,9 +149,9 @@ Parser.register((function(){
 			}
 		}
 
-		for(var p in result) {
+		/*for(var p in result) {
 			result[p].at *= 2;
-		}
+		}*/
 		
 		return result; 
 	}; 
