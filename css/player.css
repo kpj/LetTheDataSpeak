@@ -2,20 +2,20 @@ body {
 	overflow: hidden;
 }
 
-body, .row, .row > .left, .row > .right {
+body, .line, .line > .left, .line > .right {
 	height: 300px; 
 }
 
-.row {
+.line {
 	width: 100%; 
 	margin-bottom: 10px; 
 }
 
-.row > .left {
+.line > .left {
 	width: 20%;
 }
 
-.row > .right {
+.line > .right {
 	position: relative;
 	top: -200px;
 	left: 20%; 
