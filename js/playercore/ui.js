@@ -40,7 +40,9 @@ UI.play = function(){
 	//called when hitting the start button
 	UI._lockAll();
 
-	UI._ticker = new Ticker(UI._elements.data.val(), $("div.right"), UI._config, function(){
+	var noSpaces = UI._elements.data.val().replace(/\s+/g, '');
+
+	UI._ticker = new Ticker(noSpaces, $("div.right"), UI._config, function(){
 		UI._startState(); //once we have started
 		UI._ticker.start(); 
 	}); 	
