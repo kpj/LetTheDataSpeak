@@ -40,6 +40,8 @@ UI.init = function(){
 	} else {
 		$("body").addClass("left"); 
 	}
+
+	Presets.init(); 
 }; 
 
 UI.play = function(){

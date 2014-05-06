@@ -34,6 +34,7 @@ $(function(){
 		"../js/visual/visualiser.js", 
 
 		/* the core */
+		"../js/playercore/presets.js", 
 		"../js/playercore/ui.js", 
 		"../js/playercore/ticker.js", 
 
