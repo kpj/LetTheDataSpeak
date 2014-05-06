@@ -41,8 +41,6 @@ var Ticker = function(input, div, config, callback){
 				//the next cycle
 				me.cycle(); 
 			}, preparsedObject.length*tickLength)); 
-
-			TheVisual.moveLine(preparsedObject.length*tickLength); 
 		}
 	}
 

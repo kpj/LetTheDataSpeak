@@ -34,6 +34,12 @@ UI.init = function(){
 	}); 
 
 	UI._stopState();
+
+	if(window.location.hash == "#right"){
+		$("body").addClass("right"); 
+	} else {
+		$("body").addClass("left"); 
+	}
 }; 
 
 UI.play = function(){
@@ -42,7 +48,7 @@ UI.play = function(){
 
 	var noSpaces = UI._elements.data.val().replace(/\s+/g, '');
 
-	UI._ticker = new Ticker(noSpaces, $("div.right"), UI._config, function(){
+	UI._ticker = new Ticker(noSpaces, $("div.visualiser"), UI._config, function(){
 		UI._startState(); //once we have started
 		UI._ticker.start(); 
 	}); 	

@@ -18,30 +18,25 @@
 	<link rel="shortcut icon" href="../favicon.ico" /> 
 </head>
 <body>
-	<div class="line">
-		<div class="left">
-			<div class="middle">
-				<textarea class="data">AGTTTGGAGTACTGATCGTAGTCGTACGATCGATCATCGTATGCTGATGAATTG</textarea>
-				<button class="play">Play</button>
-				<button class="stop">Stop</button>
-				<!--
-				&nbsp; &nbsp;
-				<button class="options player">Sound</button>
-				-->
-				<br />
-				<select class="selectable parser">
-					<option>Loading Parsers</option>
-				</select> <!-- select preparser -->
-				<select class="selectable player">
-					<option>Loading Players</option>
-				</select> <!-- select player -->
-				<select class="selectable instrument" disabled="disabled">
-					<option selected value="">N/A</option>
-				</select> <!-- select instrument -->
-			</div>
+	<div class="input">
+		<div class="middle">
+			<textarea class="data">AGTTTGGAGTACTGATCGTAGTCGTACGATCGATCATCGTATGCTGATGAATTG</textarea>
+			<br />
+			<select class="selectable parser">
+				<option>Loading Parsers</option>
+			</select>
+			<select class="selectable player">
+				<option>Loading Players</option>
+			</select> <!-- select player -->
+			<select class="selectable instrument" disabled="disabled">
+				<option selected value="">N/A</option>
+			</select> <!-- select instrument -->
+			<br />
+			<button class="play">Play</button> <button class="stop">Stop</button>
 		</div>
-		<div class="right" id="content">
-		</div>
+	</div>
+	<div class="visualiser">
+		<!-- This one will contain the visualisations -->
 	</div>
 </body>
 </html>

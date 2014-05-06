@@ -14,8 +14,8 @@ var Visualiser = function($div, count) {
 
 	$div.empty(); //empty junk from before
 
-	var $vbar = $("<div class='vbar'>").appendTo($div); 
-	var $vtext = $("<div>").appendTo($("<div class='vtext'>").appendTo($div)); 
+	//var $vtext = $("<div>").appendTo($("<div class='vtext'>").appendTo($div)); 
+	var $vtext = $(); //nothing
 
 	var startColor = [0, 0, 255]; 
 	var endColor = [0, 255, 0]; 
@@ -103,12 +103,6 @@ var Visualiser = function($div, count) {
 			started = true; 
 			doTick(); 
 		}
-	}
-
-	this.moveLine = function(len){
-		var margin = Math.floor(Math.min(oWidth, $div.width() / count)); 
-		$vbar.stop().css({"left": margin}); 
-		$vbar.animate({"left": $div.width() - margin}, len); 
 	}
 
 	this.stop = function() {
