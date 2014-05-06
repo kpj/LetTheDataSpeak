@@ -386,3 +386,8 @@ pre code, pre tt {
 	background-color: transparent;
 	border: none;
 }
+
+button[disabled] {
+ background-color: #ddd;
+/* Add CSS here for disable button look and feel*/
+}
