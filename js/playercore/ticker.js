@@ -1,4 +1,4 @@
-var Ticker = function(input, div, config, callback){
+var Ticker = function(input, div, config){
 	var me = this;
 
 	var preparsedObject = Parser(
@@ -93,9 +93,7 @@ var Ticker = function(input, div, config, callback){
 
 	//intialise and call the calllback
 
-	TheSound = Player(config.player, config.instrument, function(){
-		callback.apply(me); 
-	}); 
+	TheSound = Player(config.player, config.instrument); 
 
 	TheVisual = new Visualiser(div, 64); 
 }

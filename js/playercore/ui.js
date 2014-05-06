@@ -6,7 +6,15 @@ UI.init = function(){
 
 	//update all the lists
 	UI._updateParserList(); 
+	UI._lockAll();  //lock stuff
+
 	UI._updatePlayerList(); 
+	UI._lockAll();  //lock stuff
+
+	UI._updateDataSetsList(); 
+	UI._lockAll();  //lock stuff
+
+	
 
 	//bind all the events
 	UI._elements.play.click(function(){
@@ -33,7 +41,9 @@ UI.init = function(){
 		UI._instrumentUpdated(); 
 	}); 
 
-	UI._stopState();
+	UI._elements.load.click(function(){
+		UI._dataSetUpdated();  
+	})
 
 	if(window.location.hash == "#right"){
 		$("body").addClass("right"); 
@@ -41,7 +51,9 @@ UI.init = function(){
 		$("body").addClass("left"); 
 	}
 
-	Presets.init(); 
+	UI._loadInstruments(function(){
+		UI._stopState();
+	}); 
 }; 
 
 UI.play = function(){
@@ -50,10 +62,10 @@ UI.play = function(){
 
 	var noSpaces = UI._elements.data.val().replace(/\s+/g, '');
 
-	UI._ticker = new Ticker(noSpaces, $("div.visualiser"), UI._config, function(){
-		UI._startState(); //once we have started
-		UI._ticker.start(); 
-	}); 	
+	UI._ticker = new Ticker(noSpaces, $("div.visualiser"), UI._config); 
+
+	UI._startState(); //once we have started
+	UI._ticker.start();  	
 }; 
 
 UI.stop = function(){
@@ -120,6 +132,11 @@ UI._playerUpdated = function(){
 	UI._stopState(); 
 }; 
 
+UI._dataSetUpdated = function(){
+	//data set updated
+	UI._elements.data.val(UI._elements.dataSetSelect.val());
+}; 
+
 UI._updateInstrumentList = function(){
 	//updates the instrument list
 
@@ -149,6 +166,19 @@ UI._updateInstrumentList = function(){
 	UI._instrumentUpdated(); 
 }; 
 
+UI._updateDataSetsList = function(){
+	var Presets = {
+		"Normal Hemoglobin": "ATGGTGCACCTGACTCCTGAGGAGAAGTCTGCCGTTACT", 
+		"Sickle Cell Hemoglobin": "ATGGTGCACCTGACTCCTGTGGAGAAGTCTGCCGTTACT"
+	}; 
+
+	UI._elements.dataSetSelect.empty(); 
+
+	for(var key in Presets){
+		UI._elements.dataSetSelect.append($("<option>").val(Presets[key]).text(key))
+	}
+}
+
 UI._instrumentUpdated = function(){
 	//called when the instrument is updated
 	UI._lockAll(); 
@@ -165,6 +195,9 @@ UI._lockAll = function(){
 	UI._elements.parserSelect.attr("disabled", "disabled");  
 	UI._elements.playerSelect.attr("disabled", "disabled"); 
 	UI._elements.instrumentSelect.attr("disabled", "disabled"); 
+
+	UI._elements.dataSetSelect.attr("disabled", "disabled"); 
+	UI._elements.load.attr("disabled", "disabled"); 
 }; 
 
 UI._unLockAll = function(){
@@ -176,6 +209,10 @@ UI._unLockAll = function(){
 	UI._elements.parserSelect.removeAttr("disabled"); 
 	UI._elements.playerSelect.removeAttr("disabled"); 
 	UI._elements.instrumentSelect.removeAttr("disabled"); 
+
+	UI._elements.dataSetSelect.removeAttr("disabled"); 
+	UI._elements.load.removeAttr("disabled"); 
+
 	if(UI._elements.instrumentSelect.val() == ""){
 		// N/A
 		UI._elements.instrumentSelect.attr("disabled", "disabled"); 
@@ -196,10 +233,12 @@ UI._elements = {
 	"data": $("textarea.data"), 
 	"play": $(".play"), 
 	"stop": $(".stop"), 
+	"load": $(".load"), 
 	"PlayerConfig": $(".options.player"), 
 	"parserSelect": $(".selectable.parser"), 
 	"playerSelect": $(".selectable.player"), 
-	"instrumentSelect": $(".selectable.instrument")
+	"instrumentSelect": $(".selectable.instrument"), 
+	"dataSetSelect": $(".selectable.presets")
 }; 
 
 UI._config = {
@@ -210,3 +249,17 @@ UI._config = {
 	"tickLength": 100, 
 	"baseVolume": 127
 }; 
+
+
+UI._loadInstruments = function(cb){
+
+	//load all the instruments
+
+	var instruments = ["marimba", "acoustic_grand_piano", "violin", "choir_aahs", "xylophone", "acoustic_bass", "synth_drum", "fx_6_goblins"]; 
+
+	MIDI.loadPlugin({
+		soundfontUrl: "./../lib/midi/soundfont/",
+		instruments: instruments,
+		callback: cb
+	});
+}

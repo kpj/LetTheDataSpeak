@@ -16,12 +16,12 @@ $(function(){
 
 		/* the parser + parsers */
 		"../js/parser/parser.js", 
-		"../js/parser/00-triplets.js", 
+		//"../js/parser/00-triplets.js", 
 		"../js/parser/05-amino_acids.js", 
 		"../js/parser/06-amino_acids_rhythm_chords.js", 
-		"../js/parser/10-codon_frequency.js", 
-		"../js/parser/11-codon_frequency.js",
-		"../js/parser/99-dummy.js", 
+		//"../js/parser/10-codon_frequency.js", 
+		//"../js/parser/11-codon_frequency.js",
+		//"../js/parser/99-dummy.js", 
 
 		/* the player + players */
 		"../js/player/player.js", 
@@ -34,7 +34,6 @@ $(function(){
 		"../js/visual/visualiser.js", 
 
 		/* the core */
-		"../js/playercore/presets.js", 
 		"../js/playercore/ui.js", 
 		"../js/playercore/ticker.js", 
 
