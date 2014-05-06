@@ -52,12 +52,31 @@ Player.register((function(){
 
 	/* Sound fonts */
 	MidiPlayer.SoundFonts = {
+		"marimba": {
+			"name": "Marimba", 
+			"channel": 4, 
+			"programID": 12, 
+			"note": function(x){
+				return 21 + (x % 75);
+			}
+		}, 
+
 		"acoustic_grand_piano": {
 			"name": "Piano", 
 			"channel": 0, 
 			"programID": 0, 
 			"note": function(x){
 				return 21 + Math.floor(87/63 * x);
+			}
+		}, 
+
+		
+		"violin": {
+			"name": "Violin", 
+			"channel": 3, 
+			"programID": 40, 
+			"note": function(x){
+				return 21 + (x % 75);
 			}
 		}, 
 		
@@ -77,25 +96,7 @@ Player.register((function(){
 			"note": function(x){
 				return 21 + (x % 75);
 			}
-		},
-
-		"violin": {
-			"name": "Violin", 
-			"channel": 3, 
-			"programID": 40, 
-			"note": function(x){
-				return 21 + (x % 75);
-			}
-		},
-
-		"marimba": {
-			"name": "Marimba", 
-			"channel": 4, 
-			"programID": 12, 
-			"note": function(x){
-				return 21 + (x % 75);
-			}
-		},
+		}, 
 
 		"trumpet": {
 			"name": "Trumpet", 
