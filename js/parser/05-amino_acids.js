@@ -72,27 +72,33 @@ Parser.register((function(){
 		};
 		var offset = 30;
 
+		var pauses = 0;
+
 		while(i < input.length){
 			//Iterate over the sequence and push the single thingy
 			if(input.length > i+3){
 				var str = input.substring(i, i+3).toUpperCase(); 
 				var noteId = offset + mapping[str]; 
 
-				if(str.length == 3){
-					result.push({
-						"type": "note", 
-						"at": i, 
-						"length": 1, 
-						"note": noteId, 
-						"volume": 0
-					}); 
+				if(!noteId) {
+					pauses++;
+				} else {
+					if(str.length == 3){
+						result.push({
+							"type": "note", 
+							"at": i + pauses*3, 
+							"length": 1, 
+							"note": noteId, 
+							"volume": 0
+						}); 
 
-					result.push({
-						"type": "display", 
-						"at": i, 
-						"length": 1, 
-						"text": str
-					}); 
+						result.push({
+							"type": "display", 
+							"at": i + pauses*3, 
+							"length": 1, 
+							"text": str
+						}); 
+					}
 				}
 			}
 
