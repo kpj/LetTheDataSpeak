@@ -16,7 +16,7 @@ UI.init = function(){
 
 	
 
-	//bind all the events
+	//bind all the eventsl
 	UI._elements.play.click(function(){
 		UI.play(); 
 	}); 
@@ -53,6 +53,7 @@ UI.init = function(){
 
 	UI._loadInstruments(function(){
 		UI._stopState();
+		window.parent.postMessage('loaded', '*')
 	}); 
 }; 
 

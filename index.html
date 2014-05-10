@@ -14,7 +14,11 @@
 </head>
 <body>
 	<br />
-    <div class="container">
+	<div id="loading_screen">
+		Loading...<br>
+		<img src="./img/loading.gif">
+	</div>
+	<div class="container">
 
 		<div class="jumbotron center">
 			<h1>Let The DNA Speak</h1>
@@ -22,26 +26,26 @@
 </p>
 
 			<form>
-    				<button class="btn btn-default" id="playall">Play all</button> &nbsp; 
-    				<button class="btn btn-default" id="stopall">Stop all</button>
-    		</form>
+					<button class="btn btn-default" id="playall">Play all</button> &nbsp; 
+					<button class="btn btn-default" id="stopall">Stop all</button>
+			</form>
 		</div>
-    	<div class="row framecontainer">
-    		<div class="col-md-6 leftframe">
-    			<iframe class="leftframe" src="./components/player.html#left">
-    				Please enable iframes. 
-    			</iframe>
-    		</div>
-    		<div class="col-md-6 rightframe">
-    			<iframe class="rightframe" src="./components/player.html#right">
-    				Please enable iframes. 
-    			</iframe>
-    		</div>
-    	</div>
+		<div class="row framecontainer">
+			<div class="col-md-6 leftframe">
+				<iframe class="leftframe" src="./components/player.html#left">
+					Please enable iframes. 
+				</iframe>
+			</div>
+			<div class="col-md-6 rightframe">
+				<iframe class="rightframe" src="./components/player.html#right">
+					Please enable iframes. 
+				</iframe>
+			</div>
+		</div>
 
-    </div> <!-- /container -->
+	</div> <!-- /container -->
 
-    <!-- Scripts at the bottom to load faster -->
+	<!-- Scripts at the bottom to load faster -->
 	<script type="text/javascript" src="./lib/jquery-2.1.0.min.js"></script>
 	<script type="text/javascript" src="./lib/bootstrap/bootstrap.min.js"></script>
 	<script type="text/javascript" src="./js/master.js"></script>

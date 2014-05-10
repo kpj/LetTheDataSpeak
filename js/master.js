@@ -21,3 +21,16 @@ $(function(){
 		return false; 
 	}); 
 })
+
+var loaded_num = 0;
+window.onmessage = function(e){
+	if (e.data == 'loaded') {
+		loaded_num++;
+	}
+
+	if(loaded_num == 2) {
+		// all iframes loaded
+		$('#loading_screen').hide();
+		$('.container').fadeTo('400', 1);
+	}
+};
