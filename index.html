@@ -1,53 +1,71 @@
+<!DOCTYPE html>
 <html>
-<head>
-	<title>Let The DNA Speak</title>
+	<head>
+		<title>Let The DNA Speak</title>
 
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="css/all.css" />
-	<link rel="stylesheet" type="text/css" href="css/master.css" />
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="css/all.css" />
+		<link rel="stylesheet" type="text/css" href="css/master.css" />
 
-	<!-- Bootstrap -->
-	<link href="./lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<!-- Bootstrap -->
+		<link href="./lib/bootstrap/bootstrap.min.css" rel="stylesheet" />
 
-	<link rel="icon" type="image/png" href="./favicon.png" />
-	<link rel="shortcut icon" href="./favicon.ico" /> 
-</head>
-<body>
-	<br />
-	<div id="loading_screen">
-		Loading...<br>
-		<img src="./img/loading.gif">
-	</div>
-	<div class="container">
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="./favicon.png" />
+		<link rel="shortcut icon" href="./favicon.ico" /> 
 
-		<div class="jumbotron center">
-			<h1>Let The DNA Speak</h1>
-			<p>Welcome! Are you ready to hear a DNA duet? We made it possible by translating triplets of bases into musical information. Enter base strings on each side and select the instruments. Hit play all and sit back and enjoy.
-</p>
+		<!-- Some more meta stuffs -->
+		<meta charset="UTF-8" />
+	</head>
 
-			<form>
-					<button class="btn btn-default" id="playall">Play all</button> &nbsp; 
-					<button class="btn btn-default" id="stopall">Stop all</button>
-			</form>
-		</div>
-		<div class="row framecontainer">
-			<div class="col-md-6 leftframe">
-				<iframe class="leftframe" src="./components/player.html#left">
-					Please enable iframes. 
-				</iframe>
-			</div>
-			<div class="col-md-6 rightframe">
-				<iframe class="rightframe" src="./components/player.html#right">
-					Please enable iframes. 
-				</iframe>
-			</div>
+	<body>
+		<br />
+
+		<!-- Loading Screen -->
+		<div id="loading_screen">
+			Loading...<br />
+			<img src="./img/loading.gif" alt="Loading ..." />
 		</div>
 
-	</div> <!-- /container -->
+		<!-- Main Body -->
+		<div class="container">
 
-	<!-- Scripts at the bottom to load faster -->
-	<script type="text/javascript" src="./lib/jquery-2.1.0.min.js"></script>
-	<script type="text/javascript" src="./lib/bootstrap/bootstrap.min.js"></script>
-	<script type="text/javascript" src="./js/master.js"></script>
-</body>
+			<!-- Header -->
+			<div class="jumbotron center">
+				<img src="./img/logo.png" alt="Let the DNA Speak" class="img-responsive center-block" />
+				
+				<p>
+					Welcome! Are you ready to hear a DNA duet? We made it possible by translating triplets of bases into musical information. Enter base strings on each side and select the instruments. Hit play all and sit back and enjoy.
+				</p>
+
+				<!-- Play all / stop all -->
+				<form>
+						<button class="btn btn-default" id="playall">Play all</button> &nbsp; 
+						<button class="btn btn-default" id="stopall">Stop all</button>
+				</form>
+			</div>
+
+			<!-- Frames with the player in them -->
+			<div class="row framecontainer">
+
+				<div class="col-md-6 leftframe">
+					<iframe class="leftframe" src="./components/player.html#left">
+						Please enable iframes. 
+					</iframe>
+				</div>
+
+				<div class="col-md-6 rightframe">
+					<iframe class="rightframe" src="./components/player.html#right">
+						Please enable iframes. 
+					</iframe>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- JavaScript -->
+		<script type="text/javascript" src="./lib/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="./lib/bootstrap/bootstrap.min.js"></script>
+		<script type="text/javascript" src="./js/master.js"></script>
+	</body>
 </html>

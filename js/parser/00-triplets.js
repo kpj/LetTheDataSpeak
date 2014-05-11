@@ -1,6 +1,13 @@
+/*
+	Triplets Parser
+
+	Interprets input data as triplets
+*/
+
 Parser.register((function(){
 	var TripletsParser = function(input){
-		//TODO: Make this properly
+
+
 		var result = []; 
 		var i = 0; 
 
@@ -29,13 +36,6 @@ Parser.register((function(){
 							"length": 1, 
 							"note": noteId, 
 							"volume": 0
-						}); 
-
-						result.push({
-							"type": "display", 
-							"at": i + pauses*3, 
-							"length": 1, 
-							"text": str
 						}); 
 					}
 				} catch(err) {
