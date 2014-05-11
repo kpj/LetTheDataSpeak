@@ -40,6 +40,8 @@
 
 				<!-- Play all / stop all -->
 				<form>
+						<button class="btn btn-default btn-sm" id="about">About</button>
+						<br /><br />
 						<button class="btn btn-default" id="playall">Play all</button> &nbsp; 
 						<button class="btn btn-default" id="stopall">Stop all</button>
 				</form>
@@ -62,6 +64,24 @@
 			</div>
 
 		</div>
+
+		<!-- About Dialog -->
+		<div class="modal fade" id="aboutbox">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title">About</h4>
+		      </div>
+		      <div class="modal-body">
+		        <p>TBD</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 
 		<!-- JavaScript -->
 		<script type="text/javascript" src="./lib/jquery-2.1.0.min.js"></script>
