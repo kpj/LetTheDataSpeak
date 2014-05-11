@@ -50,3 +50,10 @@ iframe {
 .container {
 	opacity: 0.2;
 }
+
+/* About dialog */
+
+#aboutbox > .modal-dialog {
+	width: 60%; 
+	min-width: 500px;
+}

@@ -12,7 +12,7 @@ Optimised for Firefox and a resolution of 1920x1080 Pixels.
 
 	The MIT License (MIT)
 
-	Copyright (c) 2014 Tom Wiesing, Kim Philipp Jablonski, Sourabh Lal, Nina Krüger and Mengyuan Zhang
+	Copyright (c) 2014 Tom Wiesing, Kim Philipp Jablonski, Sourabh Lal, Nina Krüger, Stefan Appelhoff and Mengyuan Zhang
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
