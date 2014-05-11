@@ -6,8 +6,12 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
 
-
 \usepackage{fancyhdr}
+
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage{cleveref}
 
 % BibTex
 \usepackage[backend=biber]{biblatex}
@@ -69,7 +73,18 @@ usage for this application. The application itself can be accessed via \url{http
 In our datasets, we are dealing with string data containing 4 different letters, which 
 stand for the fundamental nucleo-bases making up every DNA: Adenine (A), Cytosine (C), 
 Guanine (G), and Thymine (T). These bases are biologically organized in triplets, 
-representing amino acids which finally make up proteins, the building blocks of our life. As 
+representing amino acids which finally make up proteins, the building blocks of our life (\cref{figure:codon_sun}).
+
+\begin{figure}[H]
+  \centering
+
+  \includegraphics[width=8cm]{codon_sun.png}
+  
+  \caption{Codon Sun specifying which base combinations make up which amino acids \cite{codonSun}}
+  \label{figure:codon_sun}
+\end{figure}
+
+As 
 an example, one could look at the DNA sequences of hemoglobin, a protein which is 
 responsible for the oxygen transport in the blood of all vertebrates. When affected by a 
 disease such as the Sickle Cell Disease (SCD), the Hemoglobin gene is mutated and thus, the 
@@ -161,7 +176,7 @@ of the differences in the base triplets. In particular, some minor changes in th
 cause the existence/non-existence of certain proteins thus can be crucial to the being - and in 
 some cases it is a life-or-death situation. The minor differences in the DNA will be amplified 
 and artistified through music to match their significance and for the listener to appreciate.
-\subsection{Training Curve for Trained Listeners}
+\subsection{Learning Curve for Trained Listeners}
 The learning curve is easy, any listener will appreciate the difference in different DNA 
 strands. However, the learning curve also very much depends on the familiarity with music 
 and the purpose of using the sonification. As for our example of hemoglobin, a point mutation 
