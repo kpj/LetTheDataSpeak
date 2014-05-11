@@ -1,14 +1,16 @@
-.navbar-static-top {
-  margin-bottom: 19px;
+/* 
+	CSS applied to index.html
+*/
+
+/* Frame layout */
+.framecontainer {
+	max-height: 500px;
+	overflow: hidden;
 }
 
-.center {
-	text-align: center; 
-}
-
-a, a:visited{
-	color:blue; 
-}
+.framecontainer > .col-md-6 {
+	height: 500px; 
+} 
 
 iframe {
 	width: 100%; 
@@ -20,15 +22,8 @@ iframe {
 	margin-bottom: 10px;
 }
 
-.framecontainer {
-	max-height: 500px;
-	overflow: hidden;
-}
 
-.framecontainer > .col-md-6 {
-	height: 500px; 
-} 
-
+/* Loading screen */
 #loading_screen {
 	position: fixed;
 

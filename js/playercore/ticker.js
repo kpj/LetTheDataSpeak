@@ -21,14 +21,6 @@ var Ticker = function(input, div, config){
 		if(isRunning){
 			//set all the timeouts
 
-			preparsedObject.text.map(function(e){
-				Timeouts.push(
-					window.setTimeout(function(){
-						me.drawText(e); 
-					}, e.at*tickLength)
-				); 
-			}); 
-
 			preparsedObject.play.map(function(e){
 				Timeouts.push(
 					window.setTimeout(function(){
@@ -58,11 +50,6 @@ var Ticker = function(input, div, config){
 
 		return true; 
 	}; 
-
-	this.drawText = function(textObj){
-		//draw some text
-		TheVisual.setText(textObj.prevText, textObj.text, textObj.nextText); 
-	}
 
 	/* SOUND */
 

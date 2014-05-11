@@ -112,13 +112,6 @@ Parser.register((function(){
 						if(input.length > i+8)
 							combis.push([i, noteId, noteId+combi_offset]);
 					}
-
-					result.push({
-						"type": "display", 
-						"at": i, 
-						"length": 1, 
-						"text": str
-					}); 
 				}
 			}
 

@@ -42,13 +42,6 @@ Parser.register((function(){
 						"note": noteId, 
 						"volume": 0
 					}); 
-
-					result.push({
-						"type": "display", 
-						"at": i, 
-						"length": 1, 
-						"text": str
-					}); 
 				}
 			}
 

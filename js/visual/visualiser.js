@@ -67,14 +67,6 @@ var Visualiser = function($div, count) {
 		}
 	}
 
-	this.setText = function(last, now, next){
-		$vtext.empty().append(
-			$("<span class='prev'>").text(last), 
-			$("<span class='cur'>").text(now), 
-			$("<span class='next'>").text(next)
-		).css("margin-top", -$vtext.height() / 2);
-	}
-
 	var me = this; 
 
 	var doTick = function() {

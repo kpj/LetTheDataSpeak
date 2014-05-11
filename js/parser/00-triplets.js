@@ -30,13 +30,6 @@ Parser.register((function(){
 							"note": noteId, 
 							"volume": 0
 						}); 
-
-						result.push({
-							"type": "display", 
-							"at": i + pauses*3, 
-							"length": 1, 
-							"text": str
-						}); 
 					}
 				} catch(err) {
 					pauses++;

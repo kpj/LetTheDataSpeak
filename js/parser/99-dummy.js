@@ -12,13 +12,6 @@ Parser.register((function(){
 				"note": i, 
 				"volume": Math.round(Math.random()*100) - 50
 			}); 
-
-			result.push({
-				"type": "display", 
-				"at": i, 
-				"length": 1, 
-				"text": i.toString()
-			}); 
 		}
 
 		return result; 

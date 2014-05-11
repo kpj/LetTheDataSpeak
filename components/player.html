@@ -1,48 +1,69 @@
+<!DOCTYPE html>
 <html>
-<head>
-	<title>Let The DNA Speak - Player IFrame</title>
+	<head>
+		<title>Let The DNA Speak - Player IFrame</title>
 
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="../css/all.css" />
-	<link rel="stylesheet" type="text/css" href="../css/player.css" />
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="../css/all.css" />
+		<link rel="stylesheet" type="text/css" href="../css/player.css" />
 
 
-	<!-- load the essentials -->
-	<script type="text/javascript" src="../lib/jquery-2.1.0.min.js"></script>
-	<script src="../lib/loadExternal.js" type="text/javascript"></script>
+		<!-- load the essentials -->
+		<script type="text/javascript" src="../lib/jquery-2.1.0.min.js"></script>
+		<script src="../lib/loadExternal.js" type="text/javascript"></script>
 
-	<!-- let the loader handle the rest -->
-	<script src="../js/playercore/loader.js" type="text/javascript"></script>
+		<!-- let the loader handle the rest -->
+		<script src="../js/playercore/loader.js" type="text/javascript"></script>
 
-	<link rel="icon" type="image/png" href="../favicon.png" />
-	<link rel="shortcut icon" href="../favicon.ico" /> 
-</head>
-<body>
-	<div class="input">
-		<div class="middle">
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="../favicon.png" />
+		<link rel="shortcut icon" href="../favicon.ico" /> 
+
+		<!-- Some more meta stuffs -->
+		<meta charset="UTF-8" />
+	</head>
+	<body>
+
+		<form>
+
 			<textarea class="data">AGTTTGGAGTACTGATCGTAGTCGTACGATCGATCATCGTATGCTGATGAATTG</textarea>
+
 			<br />
+
+			<!-- Parsers -->
 			<select class="selectable parser">
 				<option>Loading Parsers</option>
 			</select>
+
+			<!-- Players -->
 			<select class="selectable player">
 				<option>Loading Players</option>
-			</select> <!-- select player -->
+			</select>
+
+			<!-- Instrument -->
 			<select class="selectable instrument" disabled="disabled">
 				<option selected value="">N/A</option>
-			</select> <!-- select instrument -->
+			</select>
+
 			<br />
+
 			Datasets: 
+
+			<!-- Datasets (presets) -->
 			<select class="selectable presets">
 				<option selected value="">N/A</option>
 			</select> 
+
 			<button class="load">Load</button>
+
 			<br />
+
+			<!-- Start / Stop buttons -->
 			<button class="play">Play</button> <button class="stop">Stop</button>
+		</form>
+		
+		<div class="visualiser">
+			<!-- Visualisation goes here -->
 		</div>
-	</div>
-	<div class="visualiser">
-		<!-- This one will contain the visualisations -->
-	</div>
-</body>
+	</body>
 </html>
