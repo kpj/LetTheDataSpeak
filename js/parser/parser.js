@@ -1,6 +1,10 @@
-/* a Preparser */
-var Parser = function(PlayArray){
+/*
+	player.html Parser Logic
 
+	General player logic
+*/
+
+var Parser = function(PlayArray){
 
 	//sort the play array
 	PlayArray.sort(function(a, b){return a.at -  b.at; }); 
@@ -20,8 +24,11 @@ var Parser = function(PlayArray){
 	}
 }
 
+//Our Object of parsers
 Parser.Parsers = {}; 
 
 Parser.register = function(newParser){
+	//register a new parser
+
 	Parser.Parsers[newParser.uname] = newParser; 
 }

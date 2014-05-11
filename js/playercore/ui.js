@@ -1,8 +1,22 @@
+/*
+	player.html UI
+
+	all required functions for the UI
+*/
+
 var UI = {}; 
 
 UI.init = function(){
 	//initialise
-	UI._lockAll(); 
+
+	//check if we are left or right
+	if(window.location.hash == "#right"){
+		$("body").addClass("right"); 
+	} else {
+		$("body").addClass("left"); 
+	}
+
+	UI._lockAll();  //lock stuff
 
 	//update all the lists
 	UI._updateParserList(); 
@@ -16,49 +30,50 @@ UI.init = function(){
 
 	
 
-	//bind all the eventsl
+	//bind all the events
 	UI._elements.play.click(function(){
 		UI.play(); 
+		return false; 
 	}); 
 
 	UI._elements.stop.click(function(){
 		UI.stop(); 
-	}); 
-
-	UI._elements.PlayerConfig.click(function(){
-		UI.PlayerConfig(); 
+		return false; 
 	}); 
 
 	UI._elements.playerSelect.change(function(){
 		UI._playerUpdated(); 
+		return false; 
 	}); 
 
 	UI._elements.parserSelect.change(function(){
 		UI._parserUpdated(); 
+		return false; 
 	}); 
 
 	UI._elements.instrumentSelect.change(function(){
 		UI._instrumentUpdated(); 
+		return false; 
 	}); 
 
 	UI._elements.load.click(function(){
 		UI._dataSetUpdated();  
+		return false; 
 	})
 
-	if(window.location.hash == "#right"){
-		$("body").addClass("right"); 
-	} else {
-		$("body").addClass("left"); 
-	}
+	//load all the insturments
 
 	UI._loadInstruments(function(){
 		UI._stopState();
+
+		//tell the parent that we have loaded
 		window.parent.postMessage('loaded', '*')
 	}); 
 }; 
 
 UI.play = function(){
 	//called when hitting the start button
+
 	UI._lockAll();
 
 	var noSpaces = UI._elements.data.val().replace(/\s+/g, '');
@@ -71,17 +86,15 @@ UI.play = function(){
 
 UI.stop = function(){
 	//called when hitting the stop button
+
 	UI._lockAll(); 
 	UI._ticker.stop(); 
 	UI._stopState(); 
 }; 
 
-UI.PlayerConfig = function(){
-	//called when hitting the Parser Config Button
-}; 
-
 UI._updateParserList = function(){
 	//update the parser list
+
 	UI._lockAll(); 
 	UI._elements.parserSelect.empty(); 
 
@@ -168,6 +181,8 @@ UI._updateInstrumentList = function(){
 }; 
 
 UI._updateDataSetsList = function(){
+	//called to update the dataset list
+
 	var Presets = {
 		"Normal Hemoglobin": "ATGGTGCACCTGACTCCTGAGGAGAAGTCTGCCGTTACT", 
 		"Sickle Cell Hemoglobin": "ATGGTGCACCTGACTCCTGTGGAGAAGTCTGCCGTTACT",
@@ -185,6 +200,7 @@ UI._updateDataSetsList = function(){
 
 UI._instrumentUpdated = function(){
 	//called when the instrument is updated
+
 	UI._lockAll(); 
 	UI._config.instrument = UI._elements.instrumentSelect.val(); 
 	UI._stopState(); 
@@ -194,12 +210,11 @@ UI._lockAll = function(){
 	//locks the UI in the playing state
 
 	UI._elements.play.attr("disabled", "disabled");  
-	UI._elements.stop.attr("disabled", "disabled");
-	UI._elements.PlayerConfig.attr("disabled", "disabled"); 
+	UI._elements.stop.attr("disabled", "disabled"); 
+	UI._elements.data.attr("disabled", "disabled"); 
 	UI._elements.parserSelect.attr("disabled", "disabled");  
 	UI._elements.playerSelect.attr("disabled", "disabled"); 
 	UI._elements.instrumentSelect.attr("disabled", "disabled"); 
-
 	UI._elements.dataSetSelect.attr("disabled", "disabled"); 
 	UI._elements.load.attr("disabled", "disabled"); 
 }; 
@@ -207,9 +222,9 @@ UI._lockAll = function(){
 UI._unLockAll = function(){
 	//locks the UI in the stopped state
 
-	UI._elements.play.removeAttr("disabled"); 
-	UI._elements.stop.removeAttr("disabled"); 
-	UI._elements.PlayerConfig.removeAttr("disabled"); 
+	UI._elements.play.removeAttr("disabled");
+	UI._elements.stop.removeAttr("disabled");
+	UI._elements.data.removeAttr("disabled", "disabled"); 
 	UI._elements.parserSelect.removeAttr("disabled"); 
 	UI._elements.playerSelect.removeAttr("disabled"); 
 	UI._elements.instrumentSelect.removeAttr("disabled"); 
@@ -218,45 +233,25 @@ UI._unLockAll = function(){
 	UI._elements.load.removeAttr("disabled"); 
 
 	if(UI._elements.instrumentSelect.val() == ""){
-		// N/A
 		UI._elements.instrumentSelect.attr("disabled", "disabled"); 
 	}
 }; 
 
 UI._stopState = function(){
+	//enables the stopped state in the UI
+
 	UI._unLockAll(); 
 	UI._elements.stop.attr("disabled", "disabled"); 
 }
 
 UI._startState = function(){
+	//enables the started state in the UI
+
 	UI._lockAll(); 
 	UI._elements.stop.removeAttr("disabled"); 
 }
 
-UI._elements = {
-	"data": $("textarea.data"), 
-	"play": $(".play"), 
-	"stop": $(".stop"), 
-	"load": $(".load"), 
-	"PlayerConfig": $(".options.player"), 
-	"parserSelect": $(".selectable.parser"), 
-	"playerSelect": $(".selectable.player"), 
-	"instrumentSelect": $(".selectable.instrument"), 
-	"dataSetSelect": $(".selectable.presets")
-}; 
-
-UI._config = {
-	"player": undefined, 
-	"parser": undefined, 
-	"instrument": undefined, 
-	"content": undefined, 
-	"tickLength": 100, 
-	"baseVolume": 127
-}; 
-
-
 UI._loadInstruments = function(cb){
-
 	//load all the instruments
 
 	var instruments = ["marimba", "acoustic_grand_piano", "violin", "choir_aahs", "xylophone", "acoustic_bass", "synth_drum", "fx_6_goblins"]; 
@@ -267,3 +262,25 @@ UI._loadInstruments = function(cb){
 		callback: cb
 	});
 }
+
+//contains all the UI elements
+UI._elements = {
+	"data": $("textarea.data"), 
+	"play": $(".play"), 
+	"stop": $(".stop"), 
+	"load": $(".load"), 
+	"parserSelect": $(".selectable.parser"), 
+	"playerSelect": $(".selectable.player"), 
+	"instrumentSelect": $(".selectable.instrument"), 
+	"dataSetSelect": $(".selectable.presets")
+}; 
+
+//contains all the configuration settings
+UI._config = {
+	"player": undefined, 
+	"parser": undefined, 
+	"instrument": undefined, 
+	"content": undefined, 
+	"tickLength": 100, 
+	"baseVolume": 127
+}; 

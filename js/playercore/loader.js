@@ -1,10 +1,14 @@
+/*
+	player.html loader
+
+	loads all required js files and then initalises the UI. 
+*/
+
 $(function(){
-	//playLoader
-	//loads and initalises the player
-	//essentially loads a lot of external JS Files. 
+
 
 	loadExternalJS([
-		/* the midi libs */
+		/* MIDIJS */
 		"../lib/midi/MIDI/AudioDetect.js", 
 		"../lib/midi/MIDI/LoadPlugin.js", 
 		"../lib/midi/MIDI/Plugin.js", 
@@ -14,8 +18,9 @@ $(function(){
 		"../lib/midi/Window/DOMLoader.XMLHttp.js", 
 		"../lib/midi/Window/DOMLoader.script.js", 
 
-		/* the parser + parsers */
+		/* Parser main and all enabled parsers */
 		"../js/parser/parser.js", 
+
 		"../js/parser/00-triplets.js", 
 		"../js/parser/05-amino_acids.js", 
 		"../js/parser/06-amino_acids_rhythm_chords.js", 
@@ -23,22 +28,24 @@ $(function(){
 		//"../js/parser/11-codon_frequency.js",
 		//"../js/parser/99-dummy.js", 
 
-		/* the player + players */
+		/* Player main and all enabled players */
 		"../js/player/player.js", 
 		"../js/player/MIDIPlayer2.js", 
 		"../js/player/MIDIPlayer.js", 
 		"../js/player/MIDIPlayer2.js", 
 		"../js/player/SimpleWaves.js", 
 
-		/* the visualiser */
+		/* Visualiser */
 		"../js/visual/visualiser.js", 
 
-		/* the core */
+		/* UI */
 		"../js/playercore/ui.js", 
+
+		/* Ticker core */
 		"../js/playercore/ticker.js", 
 
 	], function(){
-		//we have finished loading, lets start the UI
+		//Lets initialise the UI. 
 		UI.init(); 
 	}); 
 })
