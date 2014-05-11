@@ -1,0 +1,84 @@
+\documentclass[10pt]{article}
+%Spaces etc
+\usepackage{setspace}
+
+% Headers
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{fancyhdr}
+
+% BibTex
+\usepackage[backend=biber]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{sources.bib}
+
+% The page headers
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{ \fancyplain{}{Let The DNA Speak} }
+\rhead{ \fancyplain{}{\thepage} }
+
+\title{Let The DNA Speak\\Final Report}
+
+\author{Stefan Appelhoff, Kim Philipp Jablonski, Nina Krüger, Sourabh Lal, Tom Wiesing \& Mengyuan Zhang}
+
+\begin{document}
+
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{center}
+
+\textsc{\huge Let the DNA speak}\\[2cm]
+\textsc{\Huge Final Report}\\[6cm]
+
+\Large{Jacobs University Bremen\\
+Spring Semester 2014\\020077 USC - Let the Data Speak}
+\vspace*{1.2cm}
+
+\Large{Instructors:\\Dr. Aidan Boyle\\Prof. Dr. Adalbert F.X. Wilhelm}
+\vspace*{1.2cm}
+
+\Large{Authors:\\Stefan Appelhoff, Kim Philipp Jablonski, \\Nina Krüger, Sourabh Lal, Tom Wiesing \& Mengyuan Zhang}
+\vspace*{1.2cm}
+
+\end{center}
+
+\end{titlepage}
+
+
+\clearpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+\setcounter{page}{1}
+\section{Introduction}
+
+\section{Statistics}
+\subsection{Sources of Data}
+\subsection{Importance of this Type of Data}
+\subsection{Data Features of Specific Interest}
+\subsection{Aim of Sonification}
+
+\section{Sonification}
+\subsection{Mapping imposed on the Listener}
+\subsection{Details of the Mapping}
+\subsection{Aiming for a particular Aesthetic}
+
+\section{Meaning}
+\subsection{Possible Extractions from the Data}
+\subsection{Training Curve for Trained Listeners}
+
+\section{Conclusion}
+
+\newpage
+\clearpage
+\pagestyle{empty}
+
+\nocite{*}
+\doublespacing
+\printbibliography
+
+\end{document}
