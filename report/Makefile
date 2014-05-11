@@ -8,6 +8,7 @@ all: clean setup
 setup:
 	mkdir dest
 	cp report.tex dest
+	cp *.png dest
 	cp sources.bib dest
 
 clean:
