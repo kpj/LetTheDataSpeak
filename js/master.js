@@ -26,6 +26,12 @@ $(function(){
 		}); 
 		return false; 
 	}); 
+
+	//about box
+	$("#about").click(function(){
+		$("#aboutbox").modal(); 
+		return false; 
+	})
 }); 
 
 (function(){
