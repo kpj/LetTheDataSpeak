@@ -22,18 +22,15 @@ $(function(){
 		"../js/parser/parser.js", 
 
 		"../js/parser/00-triplets.js", 
-		"../js/parser/05-amino_acids.js", 
-		"../js/parser/06-amino_acids_rhythm_chords.js", 
-		//"../js/parser/10-codon_frequency.js", 
-		//"../js/parser/11-codon_frequency.js",
-		//"../js/parser/99-dummy.js", 
+		"../js/parser/01-amino_acids.js", 
+		"../js/parser/02-amino_acids_rhythm_chords.js", 
+		"../js/parser/03-dummy.js", 
 
 		/* Player main and all enabled players */
 		"../js/player/player.js", 
 		"../js/player/MIDIPlayer2.js", 
 		"../js/player/MIDIPlayer.js", 
-		"../js/player/MIDIPlayer2.js", 
-		"../js/player/SimpleWaves.js", 
+		"../js/player/MIDIPlayer2.js",  
 
 		/* Visualiser */
 		"../js/visual/visualiser.js", 

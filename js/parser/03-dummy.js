@@ -1,10 +1,15 @@
+/*
+	Dummy Parser
+
+	Just plays all the notes available. 
+*/
+
 Parser.register((function(){
 	var DummyParser = function(input){
 		var result = []; 
 
-		for(var i=0;i<64;i++){
-			//Iterate over the sequence and push the single thingys
-
+		var i = 0; 
+		for(i=0;i<64;i++){
 			result.push({
 				"type": "note", 
 				"at": i, 
@@ -17,7 +22,7 @@ Parser.register((function(){
 		return result; 
 	}; 
 
-	DummyParser.desc = "Dummy"; 
+	DummyParser.desc = "Sound Checker"; 
 	DummyParser.uname = "dummy"; 
 
 	return DummyParser; 

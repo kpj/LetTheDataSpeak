@@ -20,7 +20,7 @@ var Parser = function(PlayArray){
 
 	return {
 		"play": PlayArray, 
-		"length": cycleLength
+		"length": cycleLength+20
 	}
 }
 

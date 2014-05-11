@@ -1,3 +1,7 @@
+/*
+	Pentatonic MIDI Player
+*/
+
 Player.register((function(){
 	var MIDINotes = ["Bb0", "Db1", "Eb1", "Gb1", "Ab1", "Bb1", "Db2", "Eb2", "Gb2", "Ab2", "Bb2", "Db3", "Eb3", "Gb3", "Ab3", "Bb3", "Db4", "Eb4", "Gb4", "Ab4", "Bb4", "Db5", "Eb5", "Gb5", "Ab5", "Bb5", "Db6", "Eb6", "Gb6", "Ab6", "Bb6", "Db7", "Eb7", "Gb7", "Ab7", "Bb7"];
 
