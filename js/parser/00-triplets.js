@@ -17,7 +17,7 @@ Parser.register((function(){
 
 		while(i < input.length){
 			//Iterate over the sequence and push the single thingy
-			if(input.length > i+3){
+			if(input.length >= i+3){
 				var str = input.substring(i, i+3).toUpperCase();
 				try { 
 					var noteId = parseInt(mapping(str[0]) + mapping(str[1]) + mapping(str[2]), 4); 

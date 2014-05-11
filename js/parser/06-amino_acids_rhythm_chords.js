@@ -80,7 +80,7 @@ Parser.register((function(){
 		var counter = 0;
 		// continuous beat
 		while(i < input.length){
-			if(input.length > i+3){
+			if(input.length >= i+3){
 				var str = input.substring(i, i+3).toUpperCase(); 
 				var noteId = offset + mapping[str]; 
 
